@@ -13,11 +13,20 @@ export default {
 					icon: 'figma',
 					url: 'https://www.figma.com/@afnnun',
 				}
-			]
+			],
+			typeValue: "",
+			typeStatus: false,
+			displayTextArray: ["UX/UI", "Graphic Design"],
+			typingSpeed: 100,
+			erasingSpeed: 100,
+			newTextDelay: 2000,
+			displayTextArrayIndex: 0,
+			charIndex: 0,
 		};
 	},
 	created() {
 		this.theme = localStorage.getItem('theme') || 'light';
+		setTimeout(this.typeText, this.newTextDelay + 200);
 	},
 	mounted() {
 		feather.replace();
@@ -26,7 +35,38 @@ export default {
 	updated() {
 		feather.replace();
 	},
-	methods: {},
+	methods: {
+	typeText() {
+      if (this.charIndex < this.displayTextArray[this.displayTextArrayIndex].length) {
+        if (!this.typeStatus) this.typeStatus = true;
+        this.typeValue += this.displayTextArray[this.displayTextArrayIndex].charAt(
+          this.charIndex
+        );
+        this.charIndex += 1;
+        setTimeout(this.typeText, this.typingSpeed);
+      } else {
+        this.typeStatus = false;
+        setTimeout(this.eraseText, this.newTextDelay);
+      }
+    },
+	eraseText() {
+      if (this.charIndex > 0) {
+        if (!this.typeStatus) this.typeStatus = true;
+        this.typeValue = this.displayTextArray[this.displayTextArrayIndex].substring(
+          0,
+          this.charIndex - 1
+        );
+        this.charIndex -= 1;
+        setTimeout(this.eraseText, this.erasingSpeed);
+      } else {
+        this.typeStatus = false;
+        this.displayTextArrayIndex += 1;
+        if (this.displayTextArrayIndex >= this.displayTextArray.length)
+          this.displayTextArrayIndex = 0;
+        setTimeout(this.typeText, this.typingSpeed + 1000);
+      }
+    },
+	},
 };
 </script>
 
@@ -46,9 +86,11 @@ export default {
 			>
 				Artidtaya Suwanwarich
 			</h1>
-			<div class="animation font-general-semibold text-lg sm:text-xl xl:text-2xl text-white pt-3 text-center lg:text-left">
-				<div class="first"><div>Graphic Designer</div></div>
-				<div class="second"><div>UX/UI</div></div>
+			<div class="animation font-general-semibold text-2xl pt-3 text-center lg:text-left">
+				<span class="typed-text">{{ typeValue }}</span>
+				<span class="blinking-cursor">|</span>
+				<span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
+    
 			</div>
 			<div class="flex justify-center sm:block">
 				<a
@@ -85,54 +127,62 @@ export default {
 	</section>
 </template>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+<style lang="scss" scoped>
 
-.container {
-  color: #e5e5e5;
-  font-size: 2.26rem;
-  text-transform: uppercase;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// Cursor blinking CSS Starts...
+.blinking-cursor {
+  font-size: 2rem;
+  color: #2c3e50;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
 }
-
-.animation {
-  height:70px;
-  overflow:hidden;
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #2c3e50;
+  }
 }
-
-.animation > div > div {
-  padding: 0.30rem 0.75rem 0.30rem 0.75rem;
-  height:3rem;
-  margin-bottom: 2.81rem;
-  display:inline-block;
+@-moz-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #2c3e50;
+  }
 }
-
-.animation div:first-child {
-  animation: text-animation 8s infinite;
+@-webkit-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #2c3e50;
+  }
 }
-
-.first div {
-  background-color:#4c4a4a;
-  border-radius: 0.375rem;
+@-ms-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #2c3e50;
+  }
 }
-.second div {
-  background-color:#4c4a4a;
-  border-radius: 0.375rem;
+@-o-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: #2c3e50;
+  }
 }
-
-@keyframes text-animation {
-  0% {margin-top: 0;}
-  10% {margin-top: 0;}
-  20% {margin-top: -5.5rem;}
-  30% {margin-top: -5.5rem;}
-  40% {margin-top: -10rem;}
-  60% {margin-top: -10rem;}
-  70% {margin-top: -5.5rem;}
-  80% {margin-top: -5.5rem;}
-  90% {margin-top: 0;}
-  100% {margin-top: 0;}
-}
+// Cursor blinking CSS Ends...
 </style>
