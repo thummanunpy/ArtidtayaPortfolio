@@ -46,11 +46,10 @@ export default {
 			>
 				Artidtaya Suwanwarich
 			</h1>
-			<p
-				class="font-general-medium mt-2 text-lg sm:text-xl xl:text-2xl text-center sm:text-left leading-none text-gray-500"
-			>
-				Graphic Designer
-			</p>
+			<div class="animation font-general-semibold text-lg sm:text-xl xl:text-2xl text-white pt-3 text-center lg:text-left">
+				<div class="first"><div>Graphic Designer</div></div>
+				<div class="second"><div>UX/UI</div></div>
+			</div>
 			<div class="flex justify-center sm:block">
 				<a
 					download="Artidtaya Suwanwarich(Resume).pdf"
@@ -86,4 +85,54 @@ export default {
 	</section>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+.container {
+  color: #e5e5e5;
+  font-size: 2.26rem;
+  text-transform: uppercase;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation {
+  height:70px;
+  overflow:hidden;
+}
+
+.animation > div > div {
+  padding: 0.30rem 0.75rem 0.30rem 0.75rem;
+  height:3rem;
+  margin-bottom: 2.81rem;
+  display:inline-block;
+}
+
+.animation div:first-child {
+  animation: text-animation 8s infinite;
+}
+
+.first div {
+  background-color:#4c4a4a;
+  border-radius: 0.375rem;
+}
+.second div {
+  background-color:#4c4a4a;
+  border-radius: 0.375rem;
+}
+
+@keyframes text-animation {
+  0% {margin-top: 0;}
+  10% {margin-top: 0;}
+  20% {margin-top: -5.5rem;}
+  30% {margin-top: -5.5rem;}
+  40% {margin-top: -10rem;}
+  60% {margin-top: -10rem;}
+  70% {margin-top: -5.5rem;}
+  80% {margin-top: -5.5rem;}
+  90% {margin-top: 0;}
+  100% {margin-top: 0;}
+}
+</style>

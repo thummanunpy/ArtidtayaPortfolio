@@ -1,17 +1,22 @@
 <script>
 import feather from 'feather-icons';
-import ProjectsFilter from './ProjectsFilter.vue';
 import ProjectSingle from './ProjectSingle.vue';
 import projects from '../../data/projects';
 
 export default {
-	components: { ProjectSingle, ProjectsFilter },
+	components: { 
+		ProjectSingle,
+	},
+	
 	data: () => {
 		return {
 			projects,
 			projectsHeading: 'Projects Portfolio',
 			selectedCategory: '',
 			searchProject: '',
+			isCheckUxUi: true,
+			isCheckGraphic: false,
+			active: 4,
 		};
 	},
 	computed: {
@@ -22,19 +27,31 @@ export default {
 			} else if (this.searchProject) {
 				return this.filterProjectsBySearch();
 			}
-			return this.projects;
+			if(this.isCheckUxUi){
+				return this.projects.uxui;
+			}else{
+				return this.projects.graphic;
+			}
 		},
 	},
 	methods: {
 		// Filter projects by category
 		filterProjectsByCategory() {
-			return this.projects.filter((item) => {
+			return this.projects.uxui.filter((item) => {
 				let category =
 					item.category.charAt(0).toUpperCase() +
 					item.category.slice(1);
 				console.log(category);
 				return category.includes(this.selectedCategory);
 			});
+		},
+		toggleUxUi() {
+			this.isCheckUxUi = true;
+			this.isCheckGraphic = false;
+		},
+		toggleGraphic() {
+			this.isCheckGraphic = true;
+			this.isCheckUxUi = false;
 		},
 		// Filter projects by title search
 		filterProjectsBySearch() {
@@ -49,6 +66,7 @@ export default {
 </script>
 
 <template>
+	
 	<!-- Projects grid -->
 	<section class="pt-10 sm:pt-14">
 		<!-- Projects grid title -->
@@ -59,81 +77,32 @@ export default {
 				{{ projectsHeading }}
 			</p>
 		</div>
-
-		<!-- Filter and search projects -->
-		<div class="mt-10 sm:mt-10">
-			<h3
-				class="font-general-regular
-					text-center text-secondary-dark
-					dark:text-ternary-light
-					text-md
-					sm:text-xl
-					font-normal
-					mb-4
-				"
-			>
-				Search projects by title or filter by category
-			</h3>
+			<div class="mt-10 sm:mt-10 ">
 			<div
-				class="
-					flex
-					justify-between
-					border-b border-primary-light
-					dark:border-secondary-dark
-					pb-3
-					gap-2
-				"
+				class="flex justify-center items-center invisible md:visible xl:visible"
 			>
-				<div class="flex justify-between gap-2">
-					<span
-						class="
-							hidden
-							sm:block
-							bg-primary-light
-							dark:bg-ternary-dark
-							p-2.5
-							shadow-sm
-							rounded-xl
-							cursor-pointer
-							"
-					>
-						<i
-							data-feather="search"
-							class="text-ternary-dark dark:text-ternary-light"
-						></i>
-					</span>
-					<input
-						v-model="searchProject"
-						class="font-general-medium
-						pl-3
-						pr-1
-						sm:px-4
-						py-2
-						border-1 border-gray-200
-						dark:border-secondary-dark
-						rounded-lg
-						text-sm
-						sm:text-md
-						bg-secondary-light
-						dark:bg-ternary-dark
-						text-primary-dark
-						dark:text-ternary-light
-						"
-						id="name"
-						name="name"
-						type="search"
-						required=""
-						placeholder="Search Projects"
-						aria-label="Name"
-					/>
-				</div>
-				<ProjectsFilter @filter="selectedCategory = $event" />
+				<a
+					href="#"
+					class="font-general-medium block text-left text-xl font-bold 
+					text-primary-dark hover:text-rose-700 mb-2 hover-underline-animation"
+					:class="{ 'text-3xl text-rose-700': isCheckUxUi }" 
+					@click="toggleUxUi"
+					>UX/UI</a
+				>
+				<h3 class="text-2xl xl:text-4xl font-bold mx-2 xl:mx-4">/</h3>
+				<a
+					href="#"
+					class="font-general-medium block text-left text-xl font-bold
+					text-primary-dark hover:text-rose-700 mb-2 hover-underline-animation"
+					:class="{'text-3xl text-rose-700': isCheckGraphic }" 
+					@click="toggleGraphic"
+					>Graphic Design
+				</a>
 			</div>
-		</div>
 
-		<!-- Projects grid -->
+		</div>
 		<div
-			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10"
+			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10 lg:gap-1"
 		>
 			<ProjectSingle
 				v-for="project in filteredProjects"
@@ -141,7 +110,36 @@ export default {
 				:project="project"
 			/>
 		</div>
+		
 	</section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d1345e;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.resize
+{
+    transition: max-height 0.3s ease-in-out;
+}
+</style>

@@ -82,17 +82,17 @@ export default {
 			<h1
 				class="font-general-semibold text-3xl xl:text-6xl md:text-left text-ternary-dark mb-2"
 			>
-				Skills & Experience
+				Skills & Experiences
 			</h1>
 			<p
 				class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center sm:text-left leading-none mb-5 mt-8 md:mt-32"
 			>
 				Software Skills
 			</p>
-			<div class="grid grid-cols-2 gap-4 mx-10 md:grid-cols-3 md:gap-4 md:mx-1" >
+			<div class="grid grid-cols-3 gap-4 mx-10 md:grid-cols-3 md:gap-4 md:mx-1" >
 				<div v-for="skill in skills" :key="skill.id">
 					<div class="flex flex-col items-center justify-center relative mb-3">
-						<img class= "w-2/4 md:w-2/3 xl:w-1/3 mt-5" 
+						<img class= "w-3/5 md:w-2/3 xl:w-1/3 mt-5" 
 							:src= "skill.icon"
 						/>
 						<h3 class="sm:font-general-semibold md:font-general-medium inline-block rounded-full bg-rose-600 px-3 py-1 mt-5 bg-rose-80 text-center text-white">
@@ -109,7 +109,7 @@ export default {
 				<p
 					class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center sm:text-left leading-none mb-5 mt-10 xl:mt-1"
 				>
-					Experience
+					Experiences
 				</p>
 				<div class="mt-12 ml-6">
 					<ol class="relative border-l border-gray-200">                  
