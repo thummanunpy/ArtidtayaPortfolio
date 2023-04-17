@@ -6,34 +6,367 @@ export default {
 
 <template>
 	<div class="">
-		<div class="text-center max-w-xl px-6 py-12">
+		<div class="text-center max-w-xl">
 			<h1
-				class="font-general-medium text-4xl text-primary-dark dark:text-primary-light mt-12 mb-12"
+				class="font-general-medium text-4xl text-primary-dark dark:text-primary-light mt-12 mb-6"
 			>
 				Ways To Contact Me
 			</h1>
-			<ul class="font-general-regular">
-				<li class="flex" v-for="contact in contacts" :key="contact.id">
-					<i
-						:data-feather="contact.icon"
-						class="w-5 text-gray-500 dark:text-gray-400 mr-4"
-					></i>
-					<a
-						href="#"
-						class="text-lg mb-4 text-ternary-dark dark:text-ternary-light"
-						:class="
-							contact.icon === 'mail' || contact.icon === 'phone'
-								? 'hover:underline cursor-pointer'
-								: ''
-						"
-						aria-label="Website and Phone"
-					>
-						{{ contact.name }}
-					</a>
-				</li>
-			</ul>
+			<h2
+				class="font-general-medium text-xl text-gray-500 dark:text-primary-light mb-12"
+			>
+				Any question or remarks? Just write a message!
+			</h2>
+	<div class="w-screen h-screen bg-white">
+	<!-- COMPONENT CODE -->
+		<div class=" my-4 px-4 lg:px-20">
+			<div class="p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
+				<div class="flex">
+					<h1 class="font-bold uppercase text-5xl">Send us a <br /> message</h1>
+				</div>
+				<div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+						type="text" placeholder="First Name*" />
+					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+						type="text" placeholder="Last Name*" />
+					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+						type="email" placeholder="Email*" />
+					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+						type="number" placeholder="Phone*" />
+				</div>
+				<div class="my-4">
+					<textarea placeholder="Message*" class="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+				</div>
+				<div class="my-2 w-1/2 lg:w-1/4">
+					<button class="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
+						focus:outline-none focus:shadow-outline">
+						Send Message
+					</button>
+				</div>
+			</div>
+
+			<div class="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">
+				<div class="flex flex-col text-white">
+					<h1 class="font-bold uppercase text-4xl my-4">Drop in our office</h1>
+					<p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+						tincidunt arcu diam,
+						eu feugiat felis fermentum id. Curabitur vitae nibh viverra, auctor turpis sed, scelerisque ex.
+					</p>
+					<div class="flex my-4 w-2/3 lg:w-1/2">
+						<div class="flex flex-col">
+							<i class="fas fa-map-marker-alt pt-2 pr-2" />
+						</div>
+						<div class="flex flex-col">
+							<h2 class="text-2xl">Main Office</h2>
+							<p class="text-gray-400">5555 Tailwind RD, Pleasant Grove, UT 73533</p>
+						</div>
+					</div>
+					<div class="flex my-4 w-2/3 lg:w-1/2">
+						<div class="flex flex-col">
+							<i class="fas fa-phone-alt pt-2 pr-2" />
+						</div>
+						<div class="flex flex-col">
+							<h2 class="text-2xl">Call Us</h2>
+							<p class="text-gray-400">Tel: xxx-xxx-xxx</p>
+							<p class="text-gray-400">Fax: xxx-xxx-xxx</p>
+						</div>
+					</div>
+					<div class="flex my-4 w-2/3 lg:w-1/2">
+						<a href="https://www.facebook.com/ENLIGHTENEERING/" target="_blank" rel="noreferrer" class="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
+							<i class="fab fa-facebook-f text-blue-900" />
+						</a>
+						<a href="https://www.linkedin.com/company/enlighteneering-inc-" target="_blank" rel="noreferrer" class="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
+							<i class="fab fa-linkedin-in text-blue-900" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+    <!-- COMPONENT CODE -->
+</div>
+
+<!-- BUY ME A PIZZA AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
+  <div>
+    <a title="Buy me a pizza" href="https://www.buymeacoffee.com/Dekartmc" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
+      <img class="object-cover object-center w-full h-full rounded-full" src="https://img.icons8.com/emoji/48/000000/pizza-emoji.png"/>
+    </a>
+  </div>
+</div>
 		</div>
 	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@mixin size($point) {
+  @if $point == lg-device {
+    @media (min-width: 1024px) and (max-width: 1600px) {
+      @content;
+    }
+  } @else if $point == md-device {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  } @else if $point == sm-device {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+}
+@font-face {
+  font-family: "Material Icons Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v54/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2)
+    format("woff2");
+}
+
+.material-icons-outlined {
+  font-family: "Material Icons Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #222;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #fff38f 50%, #095a54 50%);
+  background-size: 100vw 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include size(md-device) {
+    align-items: baseline;
+  }
+  @include size(sm-device) {
+    align-items: baseline;
+  }
+}
+
+.contact_wrapper {
+  display: flex;
+  // align-items: center;
+  background: white;
+  padding: 40px 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 700px;
+  @include size(md-device) {
+    width: 80%;
+    flex-direction: column;
+  }
+  @include size(sm-device) {
+    width: 90%;
+    flex-direction: column;
+    padding-top: 0px;
+  }
+  .contact_info {
+    position: relative;
+    width: 80%;
+    flex: 0 0 230px;
+    background: #095a54;
+    color: #f6f6f6;
+    margin-left: calc(-230px / 2 - 30px);
+    padding: 25px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    @include size(md-device) {
+      width: 100%;
+      flex: 0 0 100%;
+      margin-left: -50px;
+      margin-top: -15px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    @include size(sm-device) {
+      width: 100%;
+      flex: 0 0 100%;
+      margin-left: -25px;
+      margin-top: 0px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+    .title {
+      font-size: 24px;
+      margin: 0px;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+    .icons_wrapp {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      margin-bottom: 30px;
+      li {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 25px;
+        .icon {
+          .material-icons-outlined {
+            vertical-align: middle;
+            font-size: 24px;
+            width: 32px;
+          }
+        }
+        .text {
+          vertical-align: middle;
+          line-height: 1.4;
+        }
+      }
+    }
+    .soci_wrap {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      display: flex;
+      position: absolute;
+      bottom: 25px;
+      li {
+        margin: 0px 5px;
+        a {
+          color: #f4f4f4;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          &:hover {
+            color: #fff38f;
+          }
+          .material-icons-outlined {
+            font-size: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  .contact_msg {
+    width: calc(100% - 230px / 2 - 55px);
+    flex: 0 0 calc(100% - 230px / 2 - 55px);
+    padding: 25px 30px;
+    padding-bottom: 0px;
+    @include size(md-device) {
+      width: calc(100% - 25px - 30px);
+      flex: 0 0 calc(100% - 25px - 30px);
+    }
+    @include size(sm-device) {
+      width: calc(100%);
+      flex: 0 0 calc(100%);
+      padding: 25px 0px;
+    }
+    .title {
+      font-size: 24px;
+      margin: 0px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      padding: 0 15px;
+      color: #095a54;
+    }
+    .form_fild {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .input_group {
+        position: relative;
+        margin-bottom: 25px;
+        padding: 0 15px;
+        &.w_50 {
+          width: calc(50% - 30px);
+          flex: 0 0 calc(50% - 30px);
+          @include size(sm-device) {
+            width: calc(100% - 30px);
+            flex: 0 0 calc(100% - 30px);
+          }
+        }
+        &.w_100 {
+          width: calc(100% - 30px);
+          flex: 0 0 calc(100% - 30px);
+        }
+
+        .input {
+          width: 100%;
+          min-height: 30px;
+          padding: 5px 0px;
+          border: none;
+          font-size: 18px;
+          color: #444;
+          outline: none;
+          font-weight: 400;
+          border-bottom: solid 2px #e9e9e9;
+          &.input_textarea {
+            min-width: 100%;
+            min-height: 75px;
+            max-height: 75px;
+            max-width: 100%;
+          }
+          &:hover {
+            border-bottom-color: #ddd;
+          }
+          &:focus {
+            border-bottom-color: #aaa;
+          }
+          &:valid,
+          &:focus {
+            ~ .placeholder {
+              top: -50px;
+              font-size: 12px !important;
+              color: #095a54;
+              &.textarea {
+                top: -12px;
+              }
+            }
+          }
+        }
+
+        .placeholder {
+          position: absolute;
+          left: 15px;
+          top: 0px;
+          bottom: 0px;
+          display: flex;
+          align-items: center;
+          font-size: 18px;
+          color: #bbb;
+          font-weight: 400;
+          transition: all 0.3s ease;
+          pointer-events: none;
+          &.textarea {
+            align-items: baseline;
+          }
+        }
+
+        .btn {
+          padding: 12px;
+          border: none;
+          border-radius: 0px;
+          background-color: #095a54;
+          color: white;
+          min-width: 120px;
+          outline: none;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: #06423e;
+          }
+          &:active {
+            transform: scale(0.95);
+          }
+        }
+      }
+    }
+  }
+}
+</style>

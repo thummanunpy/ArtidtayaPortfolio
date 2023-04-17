@@ -16,7 +16,7 @@ export default {
 			],
 			typeValue: "",
 			typeStatus: false,
-			displayTextArray: ["UX/UI", "Graphic Design"],
+			displayTextArray: ["UX/UI Designer", "Graphic Designer"],
 			typingSpeed: 100,
 			erasingSpeed: 100,
 			newTextDelay: 2000,
@@ -86,7 +86,7 @@ export default {
 			>
 				Artidtaya Suwanwarich
 			</h1>
-			<div class="animation font-general-semibold text-2xl pt-3 text-center lg:text-left">
+			<div class="animation font-general-semibold text-2xl text-gray-500 text-center sm:text-left md:text-left lg:text-left pt-1">
 				<span class="typed-text">{{ typeValue }}</span>
 				<span class="blinking-cursor">|</span>
 				<span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>

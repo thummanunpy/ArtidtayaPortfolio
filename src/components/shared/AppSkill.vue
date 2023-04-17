@@ -82,7 +82,7 @@ export default {
 			<h1
 				class="font-general-semibold text-3xl xl:text-6xl md:text-left text-ternary-dark mb-2"
 			>
-				Skills & Experiences
+				Skills & Experience
 			</h1>
 			<p
 				class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center sm:text-left leading-none mb-5 mt-8 md:mt-32"
@@ -109,7 +109,7 @@ export default {
 				<p
 					class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center sm:text-left leading-none mb-5 mt-10 xl:mt-1"
 				>
-					Experiences
+					Experience
 				</p>
 				<div class="mt-12 ml-6">
 					<ol class="relative border-l border-gray-200">                  
