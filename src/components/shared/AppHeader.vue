@@ -80,14 +80,7 @@ export default {
 			<div class="flex justify-between items-center px-4 sm:px-0">
 				<!-- Header logos -->
 				<div>
-					<router-link to="/"
-						><img
-							v-if="theme === 'light'"
-							src="@/assets/images/Artidtaya3.png"
-							class="w-40"
-							alt="Dark Logo"
-						/>
-					</router-link>
+					
 				</div>
 
 				<!-- Small screen hamburger menu -->
