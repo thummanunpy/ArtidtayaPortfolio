@@ -68,7 +68,7 @@ export default {
 			</h2>
       <div class="bg-white">
       <!-- COMPONENT CODE -->
-        <div class="my-4 px-4 lg:mx-12">
+        <div class="my-4 px-4 lg:mx-12 xl:mx-24 2xl:mx-56">
           <div class="flex flex-col md:flex-row p-2 sm:px-8 rounded-md shadow-md">
             <div class="w-full md:w-2/4 xl:w-2/5">
               <div class=" px-1 sm:px-12 md:px-12 pb-10 md:pb-10 rounded-md bg-indigo-700">
@@ -105,7 +105,7 @@ export default {
                       >
                     </i>
                     <h2 class="font-general-medium text-white text-left text-lg mt-5 md:mt-14 ml-10">
-                      Huaikhang Bangkok Thailand
+                      Huaikhang, Bangkok, Thailand
                     </h2>
                   </div>
                   <div class="flex flex-row align-bottom px-5">
