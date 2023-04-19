@@ -1,100 +1,118 @@
 <script>
+import feather from 'feather-icons';
 export default {
 	props: ['contacts'],
+	data: () => {
+		return {};
+	},
+  mounted() {
+		feather.replace();
+	},
+	updated() {
+		feather.replace();
+	},
 };
 </script>
 
 <template>
-	<div class="">
-		<div class="text-center max-w-xl">
+  <div class="w-screen h-screen bg-white">
+		<div class="">
 			<h1
-				class="font-general-medium text-4xl text-primary-dark dark:text-primary-light mt-12 mb-6"
+				class="font-general-medium font-bold text-center text-4xl text-primary-dark mt-12 mb-6 mx-14"
 			>
-				Ways To Contact Me
+        Contact Me
 			</h1>
 			<h2
-				class="font-general-medium text-xl text-gray-500 dark:text-primary-light mb-12"
+				class="font-general-medium text-xl text-gray-500 mb-12 mx-10"
 			>
 				Any question or remarks? Just write a message!
 			</h2>
-	<div class="w-screen h-screen bg-white">
-	<!-- COMPONENT CODE -->
-		<div class=" my-4 px-4 lg:px-20">
-			<div class="p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-				<div class="flex">
-					<h1 class="font-bold uppercase text-5xl">Send us a <br /> message</h1>
-				</div>
-				<div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-						type="text" placeholder="First Name*" />
-					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-						type="text" placeholder="Last Name*" />
-					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-						type="email" placeholder="Email*" />
-					<input class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-						type="number" placeholder="Phone*" />
-				</div>
-				<div class="my-4">
-					<textarea placeholder="Message*" class="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
-				</div>
-				<div class="my-2 w-1/2 lg:w-1/4">
-					<button class="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
-						focus:outline-none focus:shadow-outline">
-						Send Message
-					</button>
-				</div>
-			</div>
+      <div class="h-screen bg-white">
+      <!-- COMPONENT CODE -->
+        <div class="my-4 px-4 lg:px-96">
+          <div class="flex p-2 rounded-md shadow-md">
+            <div class="w-full w-2/6">
+              <div class="md:px-12 pb-32 rounded-md bg-indigo-700">
+                  <h2 class="font-general-medium text-2xl text-white text-left pt-5 pb-3">Contact Infomation</h2>
+                  <p class="text-gray-400 text-left">Fill up the form and me will get back to within 24 hours</p>
+                  <div class="flex flex-row align-bottom">
+                    <i
+                        data-feather="phone"
+                        class="mt-16 w-10 text-white"
+                      >
+                    </i>
+                    <h2 class="font-general-medium text-white text-left xl:text-md 2xl:text-lg mt-14 ml-16">
+                      +6664098865
+                    </h2>
+                  </div>
+                  <div class="flex flex-row align-bottom">
+                    <i
+                        data-feather="mail"
+                        class="mt-16 w-10 text-white"
+                      >
+                    </i>
+                    <h2 class="font-general-medium text-white text-left text-lg mt-14 ml-16">
+                      thummanunpy@gmail.com
+                    </h2>
+                  </div>
+                  <div class="flex flex-row align-bottom">
+                    <i
+                      data-feather="map-pin"
+                      class="mt-16 w-10 text-white"
+                      >
+                    </i>
+                    <h2 class="font-general-medium text-white text-left text-lg mt-14 ml-16">
+                      Huaikhang Bangkok Thailand
+                    </h2>
+                  </div>
+              </div>
+            </div>
+            <div class="w-full w-4/6 p-10">
+              <div class="flex flex-row">
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="font-general-medium">First Name</span>
+                  </label>
+                  <input type="text" placeholder="Type here" class="input input-bordered w-full " />
+                </div>
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="font-general-medium">Last Name</span>
+                  </label>
+                  <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                </div>
+              </div>
+              <div class="flex flex-row">
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="font-general-medium">Mail</span>
+                  </label>
+                  <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                </div>
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="font-general-medium">Phone</span>
+                  </label>
+                  <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                </div>
+              </div>
+              <div class="flex flex-row">
+                <div class="form-control w-full">
+                  <label class="label">
+                    <span class="font-general-medium">Message</span>
+                  </label>
+                  <textarea placeholder="Bio" class="textarea textarea-bordered textarea-lg w-full" ></textarea>
+                </div>
+              </div>
 
-			<div class="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">
-				<div class="flex flex-col text-white">
-					<h1 class="font-bold uppercase text-4xl my-4">Drop in our office</h1>
-					<p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-						tincidunt arcu diam,
-						eu feugiat felis fermentum id. Curabitur vitae nibh viverra, auctor turpis sed, scelerisque ex.
-					</p>
-					<div class="flex my-4 w-2/3 lg:w-1/2">
-						<div class="flex flex-col">
-							<i class="fas fa-map-marker-alt pt-2 pr-2" />
-						</div>
-						<div class="flex flex-col">
-							<h2 class="text-2xl">Main Office</h2>
-							<p class="text-gray-400">5555 Tailwind RD, Pleasant Grove, UT 73533</p>
-						</div>
-					</div>
-					<div class="flex my-4 w-2/3 lg:w-1/2">
-						<div class="flex flex-col">
-							<i class="fas fa-phone-alt pt-2 pr-2" />
-						</div>
-						<div class="flex flex-col">
-							<h2 class="text-2xl">Call Us</h2>
-							<p class="text-gray-400">Tel: xxx-xxx-xxx</p>
-							<p class="text-gray-400">Fax: xxx-xxx-xxx</p>
-						</div>
-					</div>
-					<div class="flex my-4 w-2/3 lg:w-1/2">
-						<a href="https://www.facebook.com/ENLIGHTENEERING/" target="_blank" rel="noreferrer" class="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
-							<i class="fab fa-facebook-f text-blue-900" />
-						</a>
-						<a href="https://www.linkedin.com/company/enlighteneering-inc-" target="_blank" rel="noreferrer" class="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
-							<i class="fab fa-linkedin-in text-blue-900" />
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-    <!-- COMPONENT CODE -->
-</div>
+            </div>
+            </div>
+        </div>
+        <!-- COMPONENT CODE -->
+    </div>
 
-<!-- BUY ME A PIZZA AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
-<div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
-  <div>
-    <a title="Buy me a pizza" href="https://www.buymeacoffee.com/Dekartmc" target="_blank" class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12">
-      <img class="object-cover object-center w-full h-full rounded-full" src="https://img.icons8.com/emoji/48/000000/pizza-emoji.png"/>
-    </a>
-  </div>
 </div>
-		</div>
-	</div>
+</div>
 </template>
 
 <style lang="scss" scoped>

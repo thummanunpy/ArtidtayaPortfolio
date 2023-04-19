@@ -16,6 +16,7 @@ export default {
 </script>
 
 <template>
+	
 	<div class="mt-10 sm:mt-20 bg-primary-light dark:bg-ternary-dark shadow-sm">
 		<!-- About me counters -->
 		<div

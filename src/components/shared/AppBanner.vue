@@ -72,31 +72,31 @@ export default {
 
 <template>
 	<section
-		class="flex flex-col sm:justify-between items-center sm:flex-row mt-12 sm:mt-10"
+		class="flex flex-col md:justify-between items-center md:flex-row mt-12 sm:mt-10"
 	>
 		<!-- Banner left contents -->
 		<div class="w-full md:w-2/5 text-left">
 			<h1
-				class="font-general-semibold text-xl md:text-xl xl:text-2xl text-center sm:text-left text-ternary-dark uppercase mb-2"
+				class="font-general-semibold text-xl md:text-xl xl:text-2xl text-center md:text-left text-ternary-dark uppercase mb-2"
 			>
 				Hello, I'm
 			</h1>
 			<h1
-				class="font-general-semibold text-3xl md:text-4xl xl:text-4xl text-center sm:text-left bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-rose-700 uppercase"
+				class="font-general-semibold text-3xl md:text-4xl xl:text-4xl text-center md:text-left bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-rose-700 uppercase"
 			>
 				Artidtaya Suwanwarich
 			</h1>
-			<div class="animation font-general-semibold text-2xl text-gray-500 text-center sm:text-left md:text-left lg:text-left pt-1">
+			<div class="animation font-general-semibold text-2xl text-gray-500 text-center md:text-left md:text-left lg:text-left pt-1">
 				<span class="typed-text">{{ typeValue }}</span>
 				<span class="blinking-cursor">|</span>
 				<span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
     
 			</div>
-			<div class="flex justify-center sm:block">
+			<div class="flex justify-center md:block">
 				<a
 					download="Artidtaya Suwanwarich(Resume).pdf"
 					href="/files/Artidtaya Suwanwarich(Resume).pdf"
-					class="flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg border border-rose-200  py-2.5 sm:py-3 shadow-lg rounded-lg bg-stone-50 focus:ring-1 focus:ring-indigo-900 hover:bg-rose-700 text-gray-500 hover:text-white duration-500"
+					class="flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg border border-rose-200 py-2.5 sm:py-3 shadow-lg rounded-lg bg-stone-50 focus:ring-1 focus:ring-indigo-900 hover:bg-rose-700 text-gray-500 hover:text-white duration-500"
 					aria-label="Download Resume"
 				>
 					<i
@@ -112,7 +112,7 @@ export default {
 		</div>
 
 		<!-- Banner right illustration -->
-		<div class="w-full md:w-3/5 text-right float-right">
+		<div class="w-full md:w-3/5 text-right float-right ">
 			<img
 				v-if="theme === 'light'"
 				src="@/assets/images/nun.png"
