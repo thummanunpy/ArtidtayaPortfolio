@@ -1,21 +1,60 @@
 <script>
 import feather from 'feather-icons';
+import emailjs from 'emailjs-com';
 export default {
 	props: ['contacts'],
 	data: () => {
-		return {};
+		return {
+      isActiveSubmitButton:false,
+      name:"",
+      email:"",
+      phone:"",
+      message:""
+    };
 	},
   mounted() {
 		feather.replace();
+    emailjs.init('SSK0mPWrP4OwIeocB')
 	},
 	updated() {
 		feather.replace();
 	},
+  computed:{
+    isActive() {
+      if(this.name !== "" && this.email !== "" && this.phone !== "" && this.message !== ""){
+        console.log("false")
+        return false;
+      }else{
+        console.log("true")
+        return true;
+      }
+    },
+  },
+  methods: {
+    sendEmail() {
+      try {
+        emailjs.send("service_mlehulm","template_x4ms38l",
+         {
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          message: this.message
+        })
+      } catch(error) {
+          console.log({error})
+      }
+      // Reset form field
+      this.name = ''
+      this.email = ''
+      this.message = ''
+      this.phone = ''
+    },
+  }
 };
 </script>
 
 <template>
-  <div class="w-screen h-screen bg-white">
+  <div class="w-screen  bg-white">
 		<div class="">
 			<h1
 				class="font-general-medium font-bold text-center text-4xl text-primary-dark mt-12 mb-6 mx-14"
@@ -27,73 +66,83 @@ export default {
 			>
 				Any question or remarks? Just write a message!
 			</h2>
-      <div class="h-screen bg-white">
+      <div class="bg-white">
       <!-- COMPONENT CODE -->
-        <div class="my-4 px-4 lg:px-96">
-          <div class="flex p-2 rounded-md shadow-md">
-            <div class="w-full w-2/6">
-              <div class="md:px-12 pb-32 rounded-md bg-indigo-700">
-                  <h2 class="font-general-medium text-2xl text-white text-left pt-5 pb-3">Contact Infomation</h2>
-                  <p class="text-gray-400 text-left">Fill up the form and me will get back to within 24 hours</p>
-                  <div class="flex flex-row align-bottom">
+        <div class="my-4 px-4 lg:mx-12">
+          <div class="flex flex-col md:flex-row p-2 sm:px-8 rounded-md shadow-md">
+            <div class="w-full md:w-2/4 xl:w-2/5">
+              <div class=" px-1 sm:px-12 md:px-12 pb-10 md:pb-10 rounded-md bg-indigo-700">
+                  <h2 class="font-general-medium text-xl md:text-2xl text-white text-center md:text-left pt-5 pb-3">
+                    Contact Infomation
+                  </h2>
+                  <p class="text-gray-400 text-center md:text-left mx-5 md:mx-0 mt-5">
+                    Fill up the form and me will get back to within 24 hours
+                  </p>
+                  <div class="flex flex-row align-bottom px-5">
                     <i
                         data-feather="phone"
-                        class="mt-16 w-10 text-white"
+                        class="mt-5 md:mt-16 w-10 text-white"
                       >
                     </i>
-                    <h2 class="font-general-medium text-white text-left xl:text-md 2xl:text-lg mt-14 ml-16">
-                      +6664098865
+                    <h2 class="font-general-medium text-white text-left xl:text-md 2xl:text-lg mt-4 md:mt-14 ml-10">
+                      +66 64098865
                     </h2>
                   </div>
-                  <div class="flex flex-row align-bottom">
+                  <div class="flex flex-row align-bottom px-5 ">
                     <i
                         data-feather="mail"
-                        class="mt-16 w-10 text-white"
+                        class="mt-5 md:mt-16 w-10 text-white"
                       >
                     </i>
-                    <h2 class="font-general-medium text-white text-left text-lg mt-14 ml-16">
+                    <h2 class="font-general-medium text-white text-left text-md mt-5 md:mt-14 ml-10">
                       thummanunpy@gmail.com
                     </h2>
                   </div>
-                  <div class="flex flex-row align-bottom">
+                  <div class="flex flex-row align-bottom px-5">
                     <i
                       data-feather="map-pin"
-                      class="mt-16 w-10 text-white"
+                      class="mt-5 md:mt-16 w-10 text-white"
                       >
                     </i>
-                    <h2 class="font-general-medium text-white text-left text-lg mt-14 ml-16">
+                    <h2 class="font-general-medium text-white text-left text-lg mt-5 md:mt-14 ml-10">
                       Huaikhang Bangkok Thailand
                     </h2>
                   </div>
+                  <div class="flex flex-row align-bottom px-5">
+                    <i
+                      data-feather="linkedin"
+                      class="mt-5 mt-2 md:mt-16 w-10 text-white hover:text-rose-600 "
+                      >
+                    </i>
+                    <i
+                      data-feather="facebook"
+                      class="ml-5 mt-5 md:mt-16 w-10 text-white hover:text-rose-700"
+                      >
+                    </i>
+                  </div>
               </div>
             </div>
-            <div class="w-full w-4/6 p-10">
-              <div class="flex flex-row">
-                <div class="form-control w-full">
+            <form class="w-full md:w-2/4 xl:w-3/5 mt-5 md:pl-10">
+              <div class="flex flex-col ">
+                <div class="form-control">
                   <label class="label">
-                    <span class="font-general-medium">First Name</span>
+                    <span class="font-general-medium">Name</span>
                   </label>
-                  <input type="text" placeholder="Type here" class="input input-bordered w-full " />
-                </div>
-                <div class="form-control w-full">
-                  <label class="label">
-                    <span class="font-general-medium">Last Name</span>
-                  </label>
-                  <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                  <input type="text" v-model="name" name="name" placeholder="Enter your first name" class="input input-bordered w-full text-md" required/>
                 </div>
               </div>
-              <div class="flex flex-row">
-                <div class="form-control w-full">
+              <div class="flex flex-col xl:flex-row">
+                <div class="form-control w-full xl:pr-10">
                   <label class="label">
-                    <span class="font-general-medium">Mail</span>
+                    <span class="font-general-medium ">Email</span>
                   </label>
-                  <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                  <input type="email" v-model="email" id="email" placeholder="Enter your Email" class="input input-bordered w-full text-md" required/>
                 </div>
                 <div class="form-control w-full">
                   <label class="label">
                     <span class="font-general-medium">Phone</span>
                   </label>
-                  <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                  <input type="text" v-model="phone" placeholder="Enter your phone number" class="input input-bordered w-full text-md" required/>
                 </div>
               </div>
               <div class="flex flex-row">
@@ -101,11 +150,14 @@ export default {
                   <label class="label">
                     <span class="font-general-medium">Message</span>
                   </label>
-                  <textarea placeholder="Bio" class="textarea textarea-bordered textarea-lg w-full" ></textarea>
+                  <textarea name="message" v-model="message" placeholder="Message" class="textarea textarea-bordered textarea-lg w-full " required ></textarea>
                 </div>
               </div>
+              <div class="flex flex-col md:flex-row">
+                <button type="submit" class="btn btn-block btn-primary mt-5" :disabled="isActive" v-on:click="sendEmail" >Submit</button>
+              </div>
 
-            </div>
+            </form>
             </div>
         </div>
         <!-- COMPONENT CODE -->
