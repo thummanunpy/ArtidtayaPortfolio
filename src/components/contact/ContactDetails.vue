@@ -1,10 +1,12 @@
 <script>
+import '@lottiefiles/lottie-player';
 import feather from 'feather-icons';
 import emailjs from 'emailjs-com';
 export default {
 	props: ['contacts'],
 	data: () => {
 		return {
+      isSend:true,
       isActiveSubmitButton:false,
       name:"",
       email:"",
@@ -22,16 +24,16 @@ export default {
   computed:{
     isActive() {
       if(this.name !== "" && this.email !== "" && this.phone !== "" && this.message !== ""){
-        console.log("false")
         return false;
       }else{
-        console.log("true")
         return true;
       }
     },
   },
   methods: {
     sendEmail() {
+      const player = document.querySelector("lottie-player");
+      const popup = document.getElementById('popUp');
       try {
         emailjs.send("service_mlehulm","template_x4ms38l",
          {
@@ -44,17 +46,23 @@ export default {
           console.log({error})
       }
       // Reset form field
+      popup.classList.remove('hidden');
+      player.play();
+      setTimeout(function() {
+        popup.classList.add('hidden');
+      }, 4000);
       this.name = ''
       this.email = ''
       this.message = ''
       this.phone = ''
     },
+    
   }
 };
 </script>
 
 <template>
-  <div class="w-screen  bg-white">
+  <div class="w-screen">
 		<div class="">
 			<h1
 				class="font-general-medium font-bold text-center text-4xl text-primary-dark mt-12 mb-6 mx-14"
@@ -66,10 +74,10 @@ export default {
 			>
 				Any question or remarks? Just write a message!
 			</h2>
-      <div class="bg-white">
+      <div class="2xl:flex 2xl:justify-center">
       <!-- COMPONENT CODE -->
-        <div class="my-4 px-4 lg:mx-12 xl:mx-24 2xl:mx-56">
-          <div class="flex flex-col md:flex-row p-2 sm:px-8 rounded-md shadow-md">
+        <div class="2xl:w-4/6 my-4 px-4 lg:mx-12 xl:mx-20 2xl:mx-54">
+          <div class="flex flex-col md:flex-row p-2 sm:pr-8 rounded-md shadow-md">
             <div class="w-full md:w-2/4 xl:w-2/5">
               <div class=" px-1 sm:px-12 md:px-12 pb-10 md:pb-10 rounded-md bg-indigo-700">
                   <h2 class="font-general-medium text-xl md:text-2xl text-white text-center md:text-left pt-5 pb-3">
@@ -94,7 +102,7 @@ export default {
                         class="mt-5 md:mt-16 w-10 text-white"
                       >
                     </i>
-                    <h2 class="font-general-medium text-white text-left text-md mt-5 md:mt-14 ml-10">
+                    <h2 class="font-general-medium text-white text-left text-md mt-5 md:mt-16 ml-10">
                       thummanunpy@gmail.com
                     </h2>
                   </div>
@@ -108,15 +116,17 @@ export default {
                       Huaikhang, Bangkok, Thailand
                     </h2>
                   </div>
-                  <div class="flex flex-row align-bottom px-5">
+                  <div class="flex flex-row align-bottom px-5 mt-14 md:mt-28">
+                    <a href="https://www.linkedin.com/in/artidtaya-suwanwarich-a35a99227/" target="_blank">
                     <i
                       data-feather="linkedin"
-                      class="mt-5 mt-2 md:mt-16 w-10 text-white hover:text-rose-600 "
+                      class=" w-10 text-white hover:text-rose-600 "
                       >
                     </i>
+                    </a>
                     <i
                       data-feather="facebook"
-                      class="ml-5 mt-5 md:mt-16 w-10 text-white hover:text-rose-700"
+                      class="ml-2 w-10 text-white hover:text-rose-700"
                       >
                     </i>
                   </div>
@@ -154,20 +164,41 @@ export default {
                 </div>
               </div>
               <div class="flex flex-col md:flex-row">
-                <button type="submit" class="btn btn-block btn-primary mt-5" :disabled="isActive" v-on:click="sendEmail" >Submit</button>
+                <button type="submit" id="play" class="btn btn-block btn-primary mt-5" :disabled="isActive" v-on:click="sendEmail" >Submit</button>
               </div>
 
             </form>
             </div>
         </div>
         <!-- COMPONENT CODE -->
+        <div id="popUp" class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+          <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex flex-col min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                  <div class="sm:flex sm:items-start">
+                  <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <lottie-player autoplay loop id="firstLottie" src="https://assets4.lottiefiles.com/private_files/lf30_o0calpsv.json" ></lottie-player>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-
-</div>
-</div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @mixin size($point) {
   @if $point == lg-device {
     @media (min-width: 1024px) and (max-width: 1600px) {

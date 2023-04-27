@@ -10,9 +10,8 @@ export default {
 </script>
 
 <template>
-	<div class="container mx-auto">
-		<!-- Banner -->
-		<AppBanner class="mb-5 sm:mb-8" />
+	<div class="bg-[#0B163]">
+		<AppBanner/>
 	</div>
 </template>
 

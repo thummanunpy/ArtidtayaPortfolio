@@ -68,46 +68,40 @@ export default {
 <template>
 	
 	<!-- Projects grid -->
-	<section class="pt-10 sm:pt-14">
+	<section class="p-10 sm:pt-14">
 		<!-- Projects grid title -->
-		<div class="text-center">
+		<div class="flex flex-row justify-center">
 			<p
-				class="font-general-semibold text-2xl sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light"
+				class="font-general-semibold text-2xl text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light"
 			>
 				{{ projectsHeading }}
 			</p>
 		</div>
-			<div class="mt-10 sm:mt-10 ">
-			<div
-				class="flex justify-center items-center invisible md:visible xl:visible"
+		<div class="btn-group  mt-10">
+			<button 
+				@click="toggleUxUi"
+				:class="{ 'btn-active': isCheckUxUi }"
+				class="btn px-12 font-general-medium"
 			>
-				<a
-					href="#"
-					class="font-general-medium block text-left text-xl font-bold 
-					text-primary-dark hover:text-rose-700 mb-2 hover-underline-animation"
-					:class="{ 'text-3xl text-rose-700': isCheckUxUi }" 
-					@click="toggleUxUi"
-					>UX/UI</a
-				>
-				<h3 class="text-2xl xl:text-4xl font-bold mx-2 xl:mx-4">/</h3>
-				<a
-					href="#"
-					class="font-general-medium block text-left text-xl font-bold
-					text-primary-dark hover:text-rose-700 mb-2 hover-underline-animation"
-					:class="{'text-3xl text-rose-700': isCheckGraphic }" 
-					@click="toggleGraphic"
-					>Graphic Design
-				</a>
-			</div>
-
+				UX/UI
+			</button>
+			<button 
+				@click="toggleGraphic"
+				:class="{ 'btn-active': isCheckGraphic }"
+				class="btn font-general-medium"
+			>
+				Graphic Design
+			</button>
 		</div>
 		<div
-			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10 lg:gap-1"
+			class="grid grid-cols-[repeat(auto-fit,_50%)] sm:grid-cols-[repeat(auto-fit,_22.5%)] md:grid-cols-[repeat(auto-fit,_19%)] lg:grid-cols-[repeat(auto-fit,_15.3%)] 
+			xl:grid-cols-[repeat(auto-fit,_12.3%)] gap-4 m-auto pt-20 justify-center"
 		>
 			<ProjectSingle
 				v-for="project in filteredProjects"
 				:key="project.id"
 				:project="project"
+				class="w-full p-8 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
 			/>
 		</div>
 		
@@ -115,6 +109,9 @@ export default {
 </template>
 
 <style scoped>
+.btn-active{
+	background-color: #d1345e;
+}
 .hover-underline-animation {
   display: inline-block;
   position: relative;

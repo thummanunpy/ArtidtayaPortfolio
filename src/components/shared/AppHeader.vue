@@ -37,11 +37,9 @@ export default {
 	},
 
 	created() {
-		this.theme = localStorage.getItem('theme') || 'light';
 	},
 	mounted() {
 		feather.replace();
-		this.theme = localStorage.getItem('theme') || 'light';
 	},
 	methods: {
 		updateTheme(theme) {
@@ -69,66 +67,42 @@ export default {
 </script>
 
 <template>
-	<nav id="nav" class="md:container md:mx-auto">
-		<!-- Header start -->
-		<div
-			class="z-10 max-w-screen-lg xl:max-w-screen-xl block sm:flex sm:justify-between sm:items-center my-6"
-		>
-			<!-- Header menu links and small screen hamburger menu -->
-			<div class="flex justify-between items-center px-4 sm:px-0">
-				<!-- Header logos -->
-				<div>
-					<router-link to="/"
-						><img
-							v-if="theme === 'light'"
-							src="@/assets/images/Artidtaya3.png"
-							class="w-40"
-							alt="Dark Logo"
-						/>
-					</router-link>
-				</div>
-
-				<!-- Small screen hamburger menu -->
-				<div class="sm:hidden">
-					<button
-						@click="isOpen = !isOpen"
-						type="button"
-						class="focus:outline-none"
-						aria-label="Hamburger Menu"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							class="h-7 w-7 fill-current text-secondary-dark dark:text-ternary-light"
-						>
-							<path
-								v-if="isOpen"
-								fill-rule="evenodd"
-								d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-								clip-rule="evenodd"
-							></path>
-							<path
-								v-if="!isOpen"
-								fill-rule="evenodd"
-								d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-							></path>
-						</svg>
-					</button>
-				</div>
-			</div>
-
-			<!-- Header links -->
+<nav >
+  <div class="flex justify-between items-center mx-auto p-4">
+    <div class="logo flex items-center">
+		<router-link to="/">
+			<img
+				src="@/assets/images/Artidtaya3-removebg-preview.png"
+				class="w-40"
+				alt="Dark Logo"
+			/>
+		</router-link>
+	</div>
+	<div class="hamber-menu flex items-center">
+		<button data-collapse-toggle="navbar-multi-level" type="button" class="items-center p-2 ml-3 text-sm text-[#EFEAD7] rounded-lg md:hidden hover:bg-[#D62828] hover:text-[#F5F1DD] focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-multi-level" aria-expanded="false">
+			<span class="sr-only">Open main menu</span>
+			<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+		</button>
+		<div class="hidden w-full md:block md:w-auto" id="navbar-multi-level">
 			<AppHeaderLinks :showModal="showModal" :isOpen="isOpen" />
-
-			<!-- Header right section buttons -->
 		</div>
-	</nav>
+	</div>
+  </div>
+</nav>
 </template>
 
 <style scoped>
-#nav a.router-link-exact-active {
-	@apply text-rose-700;
-	@apply dark:text-indigo-400;
-	@apply font-medium;
+.logo {
+  margin-left: auto;
+}
+.hamber-menu{
+	margin-right: auto;
+}
+nav {
+	position: absolute;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	z-index: 100;
 }
 </style>

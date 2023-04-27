@@ -1,13 +1,15 @@
 <script>
 import feather from 'feather-icons';
+import 'flowbite';
 
 export default {
 	name: 'Home',
 	data: () => {
 		return {
 			theme: '',
-			showFisrt:false,
+			showHeaderSkillAndExperience:false,
 			showSecond:false,
+			headerSkill:'Advance',
 			more:"More",
 			iconDown:"chevrons-down",
 			less:"Less",
@@ -26,7 +28,7 @@ export default {
 				{
 					id: 3,
 					icon: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
-					status: 'Meduim',
+					status: 'Medium',
 				},
 				{
 					id: 4,
@@ -47,255 +49,245 @@ export default {
 		};
 	},
 	created() {
-		this.theme = localStorage.getItem('theme') || 'light';
 	},
 	mounted() {
-		feather.replace();
-		this.theme = localStorage.getItem('theme') || 'light';
+	feather.replace();
+	const skillExperience = document.getElementById("skill-experience");
+	const softwareSkill = document.getElementById("software-skill");
+	const experience = document.getElementById("experience");
+	const certificates = document.getElementById("certificates");
+	this.createObserver(skillExperience, this.callbackSkillAndExperience);
+	this.createObserver(softwareSkill, this.callbackSoftwareSkill);
+	this.createObserver(experience, this.callbackExperience);
+	this.createObserver(certificates, this.callbackCertificates);
 	},
 	updated() {
 		feather.replace();
 	},
 	methods: {
-		showMore(){
-			this.showFisrt = !this.showFisrt
-			if(this.showSecond === true){
-				this.showSecond = !this.showSecond
-			}
-		},
-		showMore2(){
-			this.showSecond = !this.showSecond
-			if(this.showFisrt === true){
-				this.showFisrt = !this.showFisrt
-			}
+	callbackExperience(entries) {
+		const target = document.getElementById("experience");
+		entries.forEach((entry) => {
+		if(entry.isIntersecting) {
+			target.classList.add('to-fade-in')
+			target.classList.remove('invisible')
+		} else {
+			target.classList.remove('to-fade-in')
+			target.classList.add('invisible')
 		}
+		});
+	},
+	callbackCertificates(entries) {
+		const target = document.getElementById("certificates");
+		entries.forEach((entry) => {
+		if(entry.isIntersecting) {
+			target.classList.add('to-fade-in')
+			target.classList.remove('invisible')
+		} else {
+			target.classList.remove('to-fade-in')
+			target.classList.add('invisible')
+		}
+		});
+	},
+	callbackSkillAndExperience(entries) {
+		const target = document.getElementById("skill-experience");
+		entries.forEach((entry) => {
+		if(entry.isIntersecting) {
+			target.classList.add('to-fade-in')
+			target.classList.remove('invisible')
+		} else {
+			target.classList.remove('to-fade-in')
+			target.classList.add('invisible')
+		}
+		});
+	},
+	callbackSoftwareSkill(entries) {
+		const target = document.getElementById("software-skill");
+		entries.forEach((entry) => {
+		if(entry.isIntersecting) {
+			target.classList.add('to-fade-in')
+			target.classList.remove('invisible')
+		} else {
+			target.classList.remove('to-fade-in')
+			target.classList.add('invisible')
+		}
+		});
+	},
+	createObserver(target, callback) {
+		const options = {
+			root: null,
+			threshold: 0
+		};
+		const observer = new IntersectionObserver(callback, options);
+		observer.observe(target);
+	},
+	checkHeaderSkills(status){
+		this.headerSkill = status
+	}
 	},
 };
 </script>
 
 <template>
 	<section
-		class="flex flex-col sm:justify-between sm:flex-row sm:my-20"
+		class="flex flex-col sm:justify-between md:flex-row pt-24 px-6 md:pl-16 xl:px-32"
 	>
-		<!-- Banner left contents -->
-		<div class="w-full mt-8 md:mt-1 md:w-2/5">
+		<div class="w-full md:mt-1 md:w-2/5">
 			<h1
-				class="font-general-semibold text-3xl xl:text-6xl md:text-left text-ternary-dark mb-2"
+				id="skill-experience"
+				class="font-general-semibold text-5xl md:text-5xl xl:text-6xl md:text-left invisible"
 			>
 				Skills & Experience
 			</h1>
-			<p
-				class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center sm:text-left leading-none mb-5 mt-8 md:mt-32"
+			<div id="software-skill">
+				<p
+					class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center md:text-left leading-none mb-5 mt-8 md:mt-16"
+				>
+					Software Skills
+				</p>
+				<div id="skills-2" 
+					class="grid grid-cols-3 gap-4 mx-10 md:grid-cols-3 md:gap-4 sm:px-20 md:px-2 md:mx-1" >		
+					<div v-for="skill in skills" :key="skill.id">
+						<div class="flex flex-col items-center justify-center relative mb-3">
+							<img class= "w-2/3 md:w-2/3 xl:w-2/3 2xl:w-1/3 mt-5" 
+								:src= "skill.icon"
+							/>
+							<h3 class="sm:font-general-semibold md:font-general-medium inline-block rounded-full bg-rose-600 px-3 py-1 mt-5 bg-rose-80 text-center text-white">
+								{{skill.status}}
+							</h3>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="w-full md:w-3/5 text-right float-right">
+			<div 
+				class="sm:mx-10 md:ml-28"
 			>
-				Software Skills
-			</p>
-			<div class="grid grid-cols-3 gap-4 mx-10 md:grid-cols-3 md:gap-4 md:mx-1" >
-				<div v-for="skill in skills" :key="skill.id">
-					<div class="flex flex-col items-center justify-center relative mb-3">
-						<img class= "w-3/5 md:w-2/3 xl:w-1/3 mt-5" 
-							:src= "skill.icon"
-						/>
-						<h3 class="sm:font-general-semibold md:font-general-medium inline-block rounded-full bg-rose-600 px-3 py-1 mt-5 bg-rose-80 text-center text-white">
-							{{skill.status}}
-						</h3>
+				<div id="experience">
+					<p
+						class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center md:text-left leading-none mb-5 mt-10 xl:mt-1 sm:px-20 md:px-2"
+					>
+						Experience
+					</p>
+					<div class="mt-12 ml-6">
+						<ol class="relative border-l border-black">                  
+							<li class="mb-10 ml-6 text-left">            
+								<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
+									<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+								</span>
+								<h3 class="flex items-center md: mb-1 text-lg font-semibold text-gray-900">
+									Graphic designer at Menxon Enterprises (Thailand) Co.,Ltd.
+									<span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
+										Latest
+									</span>
+								</h3>
+								<time class="block mb-2 text-sm font-normal leading-none text-gray-400">2019 - Current</time>
+							</li>
+							<li class="mb-10 ml-6 text-left">
+								<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
+									<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+								</span>
+								<h3 class="text-left mb-1 text-lg font-semibold text-gray-900">
+									Graphic designer at Joy sport Co., LTD.
+								</h3>
+								<time class="text-left block mb-2 text-sm font-normal leading-none text-gray-400 ">
+									2017 - 2019
+								</time>
+							</li>
+						</ol>	
+					</div>
+				</div>
+				<div
+					id="certificates" 
+				>
+					<p
+						class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center md:text-left leading-none mt-10 xl:mt-1 sm:px-20 md:px-2"
+					>
+						Certificates
+					</p>
+					<div class="mt-12 ml-6">
+						<ol class="relative border-l border-black">                  
+							<li class="mb-10 ml-6 text-left ">  
+								<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
+									<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+								</span>      
+								<h1 class="flex items-center ml-2 md:mb-1 text-lg font-semibold text-gray-900">
+										FutureSkill
+								</h1>    
+								<a class="" target="_blank" href="https://robolly.s3.eu-central-1.amazonaws.com/organizations/62ebbc628e26d777eb6ffe9a/rendered/4tRKcrrMhyl8hFjFb3L3T7Oaorwwqdkt6EIUT5km.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAW34BS2EPBJ6XSYXS%2F20230423%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20230423T154026Z&X-Amz-Expires=300&X-Amz-Signature=687ada27047917369c5da8ee3a26e7e7d3c3c1fafca832c3cc04d052b70f81b5&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%3D%2263fdc9e59b3049fbc7c4475d.pdf%22">
+									<div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
+									</div>
+								</a>
+								<div class="">
+									<h3 class="flex items-center ml-2 md:mb-1 text-lg font-semibold text-gray-900">
+										ออกแบบ User Experience Design ให้ตอบโจทย์ผู้ใช้งานสร้างฐานลูกค้า และประสบการณ์ที่ดี
+									</h3>
+									<time class="block ml-2 mb-2 text-sm font-normal leading-none text-gray-400">2023</time>
+								</div>
+
+							</li>
+							<li class="mb-10 ml-6 text-left">
+								<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
+									<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+								</span>
+								<h1 class="flex items-center ml-2 md:mb-1 text-lg font-semibold text-gray-900">
+									Udemy
+								</h1>    
+								<a target="_blank" href="https://www.udemy.com/certificate/UC-4e9ddaae-49e2-4020-8daa-033740a96230/"
+								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
+									</div>
+								</a>
+									<div class="">
+									<h3 class="flex items-center ml-2 md:mb-1 text-lg font-semibold text-gray-900">
+										Complete Web & Mobile Designer in 2023: UI/UX, Figma, +more
+									</h3>
+									<time class="block ml-2 mb-2 text-sm font-normal leading-none text-gray-400">2023</time>
+
+									</div>
+								<a target="_blank" href="https://www.udemy.com/certificate/UC-468fcf59-87a9-43a7-9b97-688c87fb306a/"
+								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
+									</div>
+								</a>
+									<div class="">
+									<h3 class="flex items-center ml-2 md:mb-1 text-lg font-semibold text-gray-900">
+										UI/UX Design With Figma : 5+ Real World Projects(2023)
+									</h3>
+									<time class="block ml-2 mb-2 text-sm font-normal leading-none text-gray-400">2023</time>
+
+									</div>
+							</li>
+						</ol>	
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!-- Banner right illustration -->
-		<div class="w-full md:w-3/5 text-right float-right">
-			<div class="sm:ml-28">
-				<p
-					class="font-general-semibold mt-2 text-xl sm:text-2xl xl:text-2xl text-center sm:text-left leading-none mb-5 mt-10 xl:mt-1"
-				>
-					Experience
-				</p>
-				<div class="mt-12 ml-6">
-					<ol class="relative border-l border-gray-200">                  
-						<li class="mb-10 ml-6 text-left">            
-							<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
-								<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-							</span>
-							<h3 class="flex items-center md: mb-1 text-lg font-semibold text-gray-900">
-								Graphic designer at Menxon Enterprises (Thailand) Co.,Ltd.
-								<span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
-									Latest
-								</span>
-							</h3>
-							<time class="block mb-2 text-sm font-normal leading-none text-gray-400">2019 - Current</time>
-							<ul class="w-fit text-gray-500 list-disc list-inside dark:text-gray-400">
-								<li>
-									Take the needs of customers to design skate shoes, roller blade on the pattern.
-								</li>
-								<li>
-									Technical make 3D layers on skate shoes.
-								</li>
-								
-								<li>
-									Make a screen block to make an example.
-								</li>
-								<transition name="slide-fade">
-								<div v-show="showFisrt">
-									<li>
-										Prepare molds to make samples.
-									</li>
-									<li>
-										Contact and talk to the supplier about the color.
-									</li>
-									<li>
-										Request a quotation from the supplier to negotiate
-										the price before send to manager sign approval for
-										start first lot product.
-									</li>
-									<li>
-										Follow up on the color and mold from the supplier that it comes in on the day.
-									</li>
-									<li>
-										Do documents detailing the mold, model, price, control the cost from supplies formula.
-									</li>
-									<li>
-										Do document detailing block screen, model, number of blocks, color.
-									</li>
-									<li>
-										Keep an eye on the work at the workshop, screen work and work shots.
-									</li>
-									<li>
-										Make model stickers, size stickers, label, manual.
-									</li>
-									<li>
-										Confirmation documents for other departments (model stickers, size stickers, label, manual). 
-									</li>
-									<li>
-										Digital printing.
-									</li>
-								</div>
-								</transition>
-							</ul>
-							<div v-if="!showFisrt">
-								<a class="inline-flex items-center px-4 py-2 text-sm font-general-semibold text-gray-500 bg-white border border-rose-200 rounded-lg hover:bg-rose-100 hover:text-rose-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-rose-700 mt-5"
-								data-te-collapse-init
-								data-te-ripple-init
-								data-te-ripple-color="light"
-								role="button"
-								aria-expanded="false"
-								aria-controls="collapseExample"
-								@Click="showMore"
-								>
-									<i
-										:data-feather="iconDown"
-										class="w-5 text-gray-500 dark:text-gray-400 mr-1"
-									></i>{{this.more}}
-								</a>
-							</div>
-							<div v-if="showFisrt">
-								<a class="inline-flex items-center px-4 py-2 text-sm font-general-semibold text-gray-500 bg-white border border-rose-200 rounded-lg hover:bg-rose-100 hover:text-rose-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-rose-700 mt-5"
-								data-te-collapse-init
-								data-te-ripple-init
-								data-te-ripple-color="light"
-								role="button"
-								aria-expanded="false"
-								aria-controls="collapseExample"
-								@Click="showMore"
-								>
-									<i
-										:data-feather="iconUp"
-										class="w-5 text-gray-500 dark:text-gray-400 mr-1"
-									></i>{{this.less}}
-								</a>
-							</div>
-		
-						</li>
-						<li class="mb-10 ml-6 text-left">
-							<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
-								<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-							</span>
-							<h3 class="text-left mb-1 text-lg font-semibold text-gray-900">
-								Graphic designer at Joy sport Co., LTD.
-							</h3>
-							<time class="text-left block mb-2 text-sm font-normal leading-none text-gray-400 ">
-								2017 - 2019
-							</time>
-							<ul class="w-fit text-gray-500 list-disc list-inside dark:text-gray-400">
-								<li>
-									Take the needs of customers to design skate shoes, roller blade on the pattern.
-								</li>
-								<li>
-									Technical make 3D layers on skate shoes.
-								</li>
-								<li>
-									Make a screen block to make an example.
-								</li>
-								<transition name="slide-fade">
-								<div v-if="showSecond">
-									<li>
-										Design of printed materials such as brochures, posters, logo, banners, catalog, etc.
-									</li>
-									<li>
-										Product photography by DSLR Cameras.
-									</li>
-									<li>
-										Editor video clip by shotcut.
-									</li>
-									<li>
-										Retouch and die cut.
-									</li>
-									<li>
-										Design of product feature packages.
-									</li>
-									<li>
-										Manual preparation of the products.
-									</li>
-									<li>
-										leader of the 5S group.
-									</li>
-									<li>
-										Document control ISO, KPI.
-									</li>
-								</div>
-								</transition>
-							</ul>
-							<div v-if="!showSecond">
-								<a class="inline-flex items-center px-4 py-2 text-sm font-general-semibold text-gray-500 bg-white border border-rose-200 rounded-lg hover:bg-rose-100 hover:text-rose-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-rose-700 mt-5"
-								data-te-collapse-init
-								data-te-ripple-init
-								data-te-ripple-color="light"
-								role="button"
-								aria-expanded="false"
-								aria-controls="collapseExample"
-								@Click="showMore2"
-								>
-									<i
-										:data-feather="iconDown"
-										class="w-5 text-gray-500 dark:text-gray-400 mr-1"
-									></i>{{this.more}}
-								</a>
-							</div>
-							<div v-if="showSecond">
-								<a class="inline-flex items-center px-4 py-2 text-sm font-general-semibold text-gray-500 bg-white border border-rose-200 rounded-lg hover:bg-rose-100 hover:text-rose-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-rose-700 mt-5"
-								data-te-collapse-init
-								data-te-ripple-init
-								data-te-ripple-color="light"
-								role="button"
-								aria-expanded="false"
-								aria-controls="collapseExample"
-								@Click="showMore2"
-								>
-									<i
-										:data-feather="iconUp"
-										class="w-5 text-gray-500 dark:text-gray-400 mr-1"
-									></i>{{this.less}}
-								</a>
-							</div>
-						</li>
-					</ol>	
-				</div>
-			</div>
-		</div>
 	</section>
+<section>
+	
+</section>
 </template>
 
 <style scoped>
+.to-fade-in {
+	opacity: 0;
+	transform: translateY(-10px);
+	animation: fade-in 2s forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .slide-fade-enter-active {
   transition: all 0.1s ease-in;
 }
@@ -308,5 +300,37 @@ export default {
 .slide-fade-leave-to {
   transform: translateY(-5px);
   opacity: 0;
+}
+.fade-enter-active {
+	animation: coming 0.4s;
+	animation-delay: 0.2s;
+	opacity: 0;
+}
+
+.fade-leave-active {
+	animation: going 0.4s;
+}
+
+@keyframes going {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-10px);
+		opacity: 0;
+	}
+}
+
+@keyframes coming {
+	from {
+		transform: translateX(-10px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0px);
+		opacity: 1;
+	}
 }
 </style>

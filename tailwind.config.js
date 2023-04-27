@@ -2,11 +2,13 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     content: [
+        "./index.html",
         './src/**/*.vue',
         './src/**/*.js',
         './src/**/*.jsx',
         './src/**/*.html',
-        './src/**/*.md'
+        './src/**/*.md',
+        "./node_modules/flowbite/**/*.js"
     ],
 
     darkMode: 'class',
@@ -35,7 +37,8 @@ module.exports = {
     },
     plugins: [
         require('@tailwindcss/forms'),
-        require("daisyui")
+        require("daisyui"),
+        require('flowbite/plugin')
     ],
 
 };

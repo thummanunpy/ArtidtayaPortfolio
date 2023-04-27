@@ -5,10 +5,10 @@ import AppHeader from './components/shared/AppHeader';
 export default {
 	components: {
 		AppHeader,
+		
 	},
 	data: () => {
 		return {
-			appTheme: localStorage.getItem('theme'),
 		};
 	},
 	mounted() {
@@ -21,28 +21,28 @@ export default {
 </script>
 
 <template>
-	<div :class="appTheme" class="pt-0.5 ">
+	<div class="main-screen">
 		<!-- App header -->
-		<AppHeader />
+		<AppHeader/>
 
 		<!-- Render active component contents with vue transition -->
 		<transition name="fade" mode="out-in">
-			<router-view clss="fullpage" :theme="appTheme" />
+			<router-view/>
 		</transition>
 	</div>
 </template>
 
 <style>
+.main-screen{
+	background-color:#0B163E;
+	min-height: 100vh;
+	overflow-x: hidden;
+}
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-}
-
-.fullpage {
-  height: 100vh;
-  width: 100%;
 }
 
 .vue-back-to-top {
@@ -88,4 +88,5 @@ export default {
 		opacity: 1;
 	}
 }
+
 </style>
