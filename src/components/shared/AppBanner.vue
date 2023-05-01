@@ -204,7 +204,7 @@ export default {
 				<div class="flex flex-row lg:flex-col justify-center lg:block">
 					<a
 						download="Artidtaya Suwanwarich(Resume).pdf"
-						href="/files/Artidtaya Suwanwarich(Resume).pdf"
+						href="/files/Resume-(Artidtaya_Suwanwarich).pdf"
 						class="flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg border border-[#EFEAD7] py-2.5 sm:py-3 shadow-lg rounded-lg bg-[#FCBF49] focus:ring-1 focus:ring-indigo-900 hover:bg-[#FA9F25] hover:-translate-y-2 text-[#003049] hover:text-white duration-500"
 						aria-label="Download Resume"
 					>

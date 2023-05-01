@@ -6,7 +6,7 @@ export default {
 
 <template>
 	<div
-		class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light"
+		class="rounded-xl shadow-lg mb-10 sm:mb-0 bg-secondary-light"
 	>
 		<img
 			:src="project.img"

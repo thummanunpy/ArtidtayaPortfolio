@@ -133,7 +133,7 @@ export default {
 				:key="project.id"
 				:project="project"
 				@click="showProjectInModal(project)"
-				class="w-full p-2 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
+				class="w-full p-2 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg cursor-pointer hover:shadow-xl"
 				for="my-modal-5"
 			/>
 		</div>
@@ -165,7 +165,7 @@ export default {
 						</div>
 						<div v-for="project in projectModal.technology" :key="project.icon">
 							<div class="justify-start mb-3 mt-2">
-								<img class= "w-1/6 ml-7 p-2 " 
+								<img class= "w-1/6 ml-7 p-2" 
 									:src= "project.icon"
 								/>
 							</div>

@@ -101,14 +101,14 @@ export default {
 				v-for="project in filteredProjects"
 				:key="project.id"
 				:project="project"
-				class="w-full p-8 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
+				class="w-full p-2 md:p-8 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
 			/>
 		</div>
-		<div class="flex flex-row justify-center md:flex-row mt-10">
+		<div class="flex flex-row justify-center md:flex-row md:mt-10">
 			<div class="w-full md:w-2/5 xl:w-1/5 " >
 				<router-link
 					to="/projects"
-					class="font-general-medium block text-left text-lg font-medium sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+					class="font-general-medium block text-left text-lg font-medium sm:mx-4 mb-2 sm:py-2 pt-3 sm:pt-2"
 					aria-label="Projects"
 				>
 					<button type="submit" id="play" class="btn btn-block btn-primary mt-5" v-on:click="sendEmail" >View more</button>
