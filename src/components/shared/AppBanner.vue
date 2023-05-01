@@ -31,6 +31,7 @@ export default {
       showSun:false,
 			typeStatus: false,
       countSun:600,
+      countRocket:0,
 			displayTextArray: ["UX/UI Designer", "Graphic Designer"],
 			typingSpeed: 100,
 			erasingSpeed: 100,
@@ -45,6 +46,7 @@ export default {
 	},
 	mounted() {
 		feather.replace();
+    let width = window.innerWidth - 20;
 		this.theme = localStorage.getItem('theme') || 'light';
 		let text = document.getElementById('text-screen-1');
     // let rocket = document.getElementById('rocket');
@@ -60,24 +62,32 @@ export default {
     this.createObserver(contact, this.callbackSun);
     this.createObserver(rocket, this.callbackRocket);
 		window.addEventListener('scroll',() =>{
-			let valueY = window.scrollY;
+		let valueY = window.scrollY;
       if(this.showRocket){
-        rocket.style.marginBottom = valueY * 0.5 + 'px';
-        rocket.style.left = valueY * 1.0 + 'px';
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > this.lastScrollTop && this.countRocket >= 0 && this.countRocket < width) {
+            this.countRocket += (valueY/300);
+            rocket.style.marginBottom = this.countRocket + 'px';
+            rocket.style.left = this.countRocket + 'px';
+        } else if (st < this.lastScrollTop) {
+            this.countRocket -= (valueY/300);
+            rocket.style.marginBottom = this.countRocket + 'px';
+            rocket.style.left = this.countRocket + 'px';
+        }
+        this.lastScrollTop = st <= 0 ? 0 : st;
       }
       if(this.showScreen1){
         text.style.marginTop = valueY * 2.5 + 'px';
       }
       if(this.showSun){
-        
-        var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+        let st = window.pageYOffset || document.documentElement.scrollTop;
         if (st > this.lastScrollTop && this.countSun > 0) {
             // downscroll code
-            this.countSun -= (valueY/500);
+            this.countSun -= (valueY/300);
             frontScreen4_1.style.left = this.countSun + 'px';
             sun.style.marginBottom =  this.countSun + 'px';
         } else if (st < this.lastScrollTop && this.countSun < 600) {
-            this.countSun += (valueY/500);
+            this.countSun += (valueY/300);
             // frontScreen4_2.style.left = this.countSun + 'px';
             frontScreen4_1.style.left = this.countSun + 'px';
             sun.style.marginBottom =  this.countSun + 'px';
@@ -100,10 +110,8 @@ export default {
       entries.forEach((entry) => {
         if(entry.isIntersecting) {
           this.showScreen1 = true;
-          console.log("visible screen1"); 
         } else {
           this.showScreen1 = false;
-          console.log("not visible screen1");
         }
       });
     },
@@ -111,8 +119,11 @@ export default {
       entries.forEach((entry) => {
         if(entry.isIntersecting) {
           this.showRocket = true;
+          console.log("visible rocket"); 
         } else {
           this.showRocket = false;
+          
+          console.log("not visible sun");
         }
       });
     },
@@ -120,10 +131,8 @@ export default {
       entries.forEach((entry) => {
         if(entry.isIntersecting) {
           this.showSun = true;
-          console.log("visible sun"); 
         } else {
           this.showSun = false;
-          console.log("not visible sun");
         }
       });
     },
@@ -235,8 +244,7 @@ export default {
 		<img class="para" src="@/assets/images/screen1/cloud-3.png" id="cloud-3">
 		
 	</div>
-<div class="content" style="background: rgb(251,193,113);
-background: linear-gradient(0deg, rgba(251,193,113,1) 0%, rgba(242,205,155,1) 16%, rgba(225,228,239,1) 100%);">
+<div class="content bg-[#E1E4EF]">
   <div class="content">
 		<div id="skills" class="parallax-skill ">
       <div id="rocket" class="para">
@@ -255,8 +263,8 @@ background: linear-gradient(0deg, rgba(251,193,113,1) 0%, rgba(242,205,155,1) 16
 </div>
 <div class="parallax-blank2 ">
 </div>
-<div class="content ">
-		<div id="skills">
+<div class="content">
+		<div id="project">
       <ProjectsGrid></ProjectsGrid>
     </div> 
 </div>

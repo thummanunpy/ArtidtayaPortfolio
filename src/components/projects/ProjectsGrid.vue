@@ -105,7 +105,7 @@ export default {
 			/>
 		</div>
 		<div class="flex flex-row justify-center md:flex-row md:mt-10">
-			<div class="w-full md:w-2/5 xl:w-1/5 " >
+			<div class="w-full md:w-2/5 lg:w-1/5 xl:w-1/5 " >
 				<router-link
 					to="/projects"
 					class="font-general-medium block text-left text-lg font-medium sm:mx-4 mb-2 sm:py-2 pt-3 sm:pt-2"
