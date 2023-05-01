@@ -101,7 +101,7 @@ export default {
 				v-for="project in filteredProjects"
 				:key="project.id"
 				:project="project"
-				class="w-full p-2 md:p-8 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
+				class="w-full p-2 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
 			/>
 		</div>
 		<div class="flex flex-row justify-center md:flex-row md:mt-10">

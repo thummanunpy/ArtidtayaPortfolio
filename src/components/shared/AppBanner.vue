@@ -52,6 +52,7 @@ export default {
     let sun = document.getElementById('sun-sc4');
 		let cloud2Left = document.getElementById('cloud-2-left');
 		let cloud2Right = document.getElementById('cloud-2-right');
+    let frontScreen4_1 = document.getElementById('front-sc4-1');
     const target = document.getElementById("screen-1");
     const contact = document.getElementById("sun-sc4");
     const rocket = document.getElementById("rocket");
@@ -73,10 +74,13 @@ export default {
         if (st > this.lastScrollTop && this.countSun > 0) {
             // downscroll code
             this.countSun -= (valueY/500);
+            frontScreen4_1.style.left = this.countSun + 'px';
             sun.style.marginBottom =  this.countSun + 'px';
         } else if (st < this.lastScrollTop && this.countSun < 600) {
             this.countSun += (valueY/500);
-            sun.style.marginBottom =  0 + 'px';
+            // frontScreen4_2.style.left = this.countSun + 'px';
+            frontScreen4_1.style.left = this.countSun + 'px';
+            sun.style.marginBottom =  this.countSun + 'px';
               // upscroll code
         } 
         this.lastScrollTop = st <= 0 ? 0 : st;
@@ -231,7 +235,9 @@ export default {
 		<img class="para" src="@/assets/images/screen1/cloud-3.png" id="cloud-3">
 		
 	</div>
-<div class="content bg-[#E1E4EF]">
+<div class="content" style="background: rgb(251,193,113);
+background: linear-gradient(0deg, rgba(251,193,113,1) 0%, rgba(242,205,155,1) 16%, rgba(225,228,239,1) 100%);">
+  <div class="content">
 		<div id="skills" class="parallax-skill ">
       <div id="rocket" class="para">
           <lottie-player
@@ -247,16 +253,16 @@ export default {
         </div>
      </div> 
 </div>
-<div class="parallax-blank2 bg-[#E1E4EF]">
+<div class="parallax-blank2 ">
 </div>
-<div class="content bg-[#E1E4EF]">
+<div class="content ">
 		<div id="skills">
       <ProjectsGrid></ProjectsGrid>
     </div> 
 </div>
-<div class="parallax-blank bg-[#E1E4EF]">
+<div class="parallax-blank ">
 </div>
-  <div id="screen-3"  class="parallax bg-[#E1E4EF]">
+  <div id="screen-3"  class="parallax ">
 		<img class="para2" src="@/assets/images/screen4/sun-sc4.png" id="sun-sc4">
 		<img class="para" src="@/assets/images/screen4/cloud-sc4.png" id="cloud-sc4">
 		<img class="para" src="@/assets/images/screen4/middle-sc4.png" id="middle-sc4">
@@ -266,11 +272,16 @@ export default {
         <ContactDetails></ContactDetails>
     </div>
 	</div>
+</div>
   
 </template>
 
 <style lang="scss" scoped>
+#front-sc4-1{
+  left: 400px;
+}
 #sun-sc4{
+  width: 80%;
   margin-bottom: 50%;
 }
 .parallax-blank {

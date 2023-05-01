@@ -93,7 +93,7 @@ export default {
                       >
                     </i>
                     <h2 class="font-general-medium text-white text-left xl:text-md 2xl:text-lg mt-4 md:mt-14 ml-10">
-                      +66 64098865
+                      +66 98-304-4317
                     </h2>
                   </div>
                   <div class="flex flex-row align-bottom px-5 ">
@@ -103,7 +103,7 @@ export default {
                       >
                     </i>
                     <h2 class="font-general-medium text-white text-left text-md mt-5 md:mt-16 ml-10">
-                      thummanunpy@gmail.com
+                      afnnun1070@gmail.com
                     </h2>
                   </div>
                   <div class="flex flex-row align-bottom px-5">

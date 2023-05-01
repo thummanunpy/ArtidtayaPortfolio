@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-	<div class="flex flex-col md:flex-row sm:gap-10 mt-10 sm:mt-20">
+	<div class="flex flex-col md:flex-row sm:gap-10 mt-10 sm:mt-20 m-4">
 		<!-- About profile image -->
 		<div class="w-full md:w-1/4 mb-7 sm:mb-0">
 			<img
@@ -112,7 +112,8 @@ export default {
 			<p
 				v-for="bio in bios"
 				:key="bio.id"
-				class="font-general-regular mb-4 text-white text-lg"
+				class="font-general-regular mb-4 text-white text-lg "
+				style="text-align: justify"
 			>
 				{{ bio.bio }}
 			</p>
