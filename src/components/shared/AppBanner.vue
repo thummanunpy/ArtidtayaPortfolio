@@ -3,7 +3,6 @@ import '@lottiefiles/lottie-player';
 import feather from 'feather-icons';
 
 import AppSkill from '@/components/shared/AppSkill.vue';
-import FooterCopyright from '@/components/shared/FooterCopyright.vue';
 import ProjectsGrid from '@/components/projects/ProjectsGrid.vue';
 import ContactDetails from '@/components/contact/ContactDetails.vue';
 
@@ -12,7 +11,6 @@ export default {
 	components:{
 		AppSkill,
     ProjectsGrid,
-    FooterCopyright,
     ContactDetails,
 	},
 	data: () => {
@@ -269,7 +267,6 @@ export default {
     </div>
 	</div>
   
-  <FooterCopyright id="footer" class="bg-white"></FooterCopyright>
 </template>
 
 <style lang="scss" scoped>
