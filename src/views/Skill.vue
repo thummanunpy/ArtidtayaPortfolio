@@ -1,5 +1,5 @@
 <script>
-import AppSkill from '@/components/shared/AppSkill';
+import AppSkill from '@/components/shared/AppSkillMain';
 
 export default {
 	name: 'Home',

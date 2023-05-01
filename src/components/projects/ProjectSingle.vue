@@ -5,30 +5,33 @@ export default {
 </script>
 
 <template>
-	<router-link
-		to="/projects/single-project"
+	<div
 		class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light"
-		aria-label="Single Project"
 	>
-		<div>
-			<img
-				:src="project.img"
-				:alt="project.title"
-				class="rounded-t-xl border-none"
-			/>
+		<img
+			:src="project.img"
+			:alt="project.title"
+			class="rounded-t-xl border-none"
+		/>
+		<div class="banner-content">
+			Description
 		</div>
-		<div class="text-center px-4 py-6">
-			<p
-				class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
-			>
-				{{ project.title }}
-			</p>
-			<span
-				class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light"
-				>{{ project.category }}</span
-			>
-		</div>
-	</router-link>
+	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card{
+  position:relative;
+}
+.card:hover {
+  opacity: 1;
+}
+.banner-content{
+  position:absolute;
+  top:0;
+  left:0;
+  display:none;
+}
+.card:hover + .banner-content{display:block;}
+
+</style>

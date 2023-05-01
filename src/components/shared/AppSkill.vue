@@ -18,17 +18,17 @@ export default {
 				{
 					id: 1,
 					icon: "https://cdn-icons-png.flaticon.com/512/5968/5968472.png",
-					status:'Advance'
+					status:'Advanced'
 				},
 				{
 					id: 2,
 					icon: "https://cdn-icons-png.flaticon.com/512/5968/5968520.png",
-					status: 'Advance',
+					status: 'Intermediate',
 				},
 				{
 					id: 3,
 					icon: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
-					status: 'Medium',
+					status: 'Intermediate',
 				},
 				{
 					id: 4,

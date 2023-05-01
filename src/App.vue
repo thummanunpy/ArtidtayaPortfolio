@@ -29,6 +29,14 @@ export default {
 		<transition name="fade" mode="out-in">
 			<router-view/>
 		</transition>
+		<back-to-top
+			visibleoffset="500"
+			right="30px"
+			bottom="20px"
+			class="shadow-lg"
+		>
+			<i data-feather="chevron-up"></i>
+		</back-to-top>
 	</div>
 </template>
 

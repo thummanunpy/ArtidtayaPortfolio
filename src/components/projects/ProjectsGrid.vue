@@ -70,32 +70,32 @@ export default {
 	<!-- Projects grid -->
 	<section class="p-10 sm:pt-14">
 		<!-- Projects grid title -->
-		<div class="flex flex-row justify-center">
+		<div class="flex flex-col xl:flex-row justify-center xl:justify-between xl:px-32">
 			<p
-				class="font-general-semibold text-2xl text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light"
+				class="font-general-semibold text-2xl text-5xl font-semibold mb-2 text-ternary-dark xl:w-1/3 xl:text-left"
 			>
 				{{ projectsHeading }}
 			</p>
-		</div>
-		<div class="btn-group  mt-10">
-			<button 
-				@click="toggleUxUi"
-				:class="{ 'btn-active': isCheckUxUi }"
-				class="btn px-12 font-general-medium"
-			>
-				UX/UI
-			</button>
-			<button 
-				@click="toggleGraphic"
-				:class="{ 'btn-active': isCheckGraphic }"
-				class="btn font-general-medium"
-			>
-				Graphic Design
-			</button>
+			<div class="btn-group mt-10  justify-center xl:justify-end xl:w-1/3">
+				<button 
+					@click="toggleUxUi"
+					:class="{ 'btn-active': isCheckUxUi }"
+					class="btn px-12 font-general-medium"
+				>
+					UX/UI
+				</button>
+				<button 
+					@click="toggleGraphic"
+					:class="{ 'btn-active': isCheckGraphic }"
+					class="btn font-general-medium"
+				>
+					Graphic Design
+				</button>
+			</div>
 		</div>
 		<div
 			class="grid grid-cols-[repeat(auto-fit,_50%)] sm:grid-cols-[repeat(auto-fit,_22.5%)] md:grid-cols-[repeat(auto-fit,_19%)] lg:grid-cols-[repeat(auto-fit,_15.3%)] 
-			xl:grid-cols-[repeat(auto-fit,_12.3%)] gap-4 m-auto pt-20 justify-center"
+			xl:grid-cols-[repeat(auto-fit,_12.3%)] gap-4 m-auto pt-10 justify-center"
 		>
 			<ProjectSingle
 				v-for="project in filteredProjects"
@@ -104,6 +104,17 @@ export default {
 				class="w-full p-8 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
 			/>
 		</div>
+		<div class="flex flex-row justify-center md:flex-row mt-10">
+			<div class="w-full md:w-2/5 xl:w-1/5 " >
+				<router-link
+					to="/projects"
+					class="font-general-medium block text-left text-lg font-medium sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
+					aria-label="Projects"
+				>
+					<button type="submit" id="play" class="btn btn-block btn-primary mt-5" v-on:click="sendEmail" >View more</button>
+				</router-link>
+			</div>
+        </div>
 		
 	</section>
 </template>

@@ -6,6 +6,7 @@ const routes = [{
         name: 'Home',
         component: Home,
         meta: {
+            icon: '@/assets/images/Artidataya-small-icon.png',
             title: 'Artidtaya - Home',
         },
     },

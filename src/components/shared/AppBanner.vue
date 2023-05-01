@@ -29,6 +29,7 @@ export default {
 			typeValue: "",
       lastScrollTop:0,
       showScreen1:false,
+      showRocket:false,
       showSun:false,
 			typeStatus: false,
       countSun:600,
@@ -48,35 +49,37 @@ export default {
 		feather.replace();
 		this.theme = localStorage.getItem('theme') || 'light';
 		let text = document.getElementById('text-screen-1');
-    let rocket = document.getElementById('rocket');
+    // let rocket = document.getElementById('rocket');
 		let moon = document.getElementById('moon');
     let sun = document.getElementById('sun-sc4');
 		let cloud2Left = document.getElementById('cloud-2-left');
 		let cloud2Right = document.getElementById('cloud-2-right');
     const target = document.getElementById("screen-1");
     const contact = document.getElementById("sun-sc4");
+    const rocket = document.getElementById("rocket");
     this.createObserver(target, this.callback);
     this.createObserver(contact, this.callbackSun);
+    this.createObserver(rocket, this.callbackRocket);
 		window.addEventListener('scroll',() =>{
 			let valueY = window.scrollY;
-      rocket.style.marginBottom = valueY * 0.5 + 'px';
-      rocket.style.left = valueY * 1.0 + 'px';
+      if(this.showRocket){
+        rocket.style.marginBottom = valueY * 0.5 + 'px';
+        rocket.style.left = valueY * 1.0 + 'px';
+      }
       if(this.showScreen1){
         text.style.marginTop = valueY * 2.5 + 'px';
       }
       if(this.showSun){
         
         var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-        if (st > this.lastScrollTop) {
-          console.log("this.countSun - : " + this.countSun)
+        if (st > this.lastScrollTop && this.countSun > 0) {
             // downscroll code
             this.countSun -= (valueY/500);
             sun.style.marginBottom =  this.countSun + 'px';
-        } else if (st < this.lastScrollTop) {
-          console.log("this.countSun + : " + this.countSun)
-          this.countSun += (valueY/500);
-          sun.style.marginBottom =  this.countSun + 'px';
-            // upscroll code
+        } else if (st < this.lastScrollTop && this.countSun < 600) {
+            this.countSun += (valueY/500);
+            sun.style.marginBottom =  0 + 'px';
+              // upscroll code
         } 
         this.lastScrollTop = st <= 0 ? 0 : st;
       }
@@ -99,6 +102,15 @@ export default {
         } else {
           this.showScreen1 = false;
           console.log("not visible screen1");
+        }
+      });
+    },
+    callbackRocket(entries) {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          this.showRocket = true;
+        } else {
+          this.showRocket = false;
         }
       });
     },
@@ -211,12 +223,6 @@ export default {
 			</div>	
 			<div class="w-full lg:w-3/6 text-right float-right ">
 				<img
-					v-if="theme === 'light'"
-					src="@/assets/images/nun.png"
-					alt="Developer"
-				/>
-				<img
-					v-else
 					src="@/assets/images/nun.png"
 					alt="Developer"
 				/>
@@ -235,7 +241,7 @@ export default {
             loop
             mode="normal"
             src="https://lottie.host/f465c104-79d5-4811-8d66-c53cb3ad1c7b/9BjG7oNzWL.json"
-            style="width: 320px"
+            class="w-60"
           ></lottie-player>
         </div>
         <div>
@@ -243,7 +249,7 @@ export default {
         </div>
      </div> 
 </div>
-<div class="content-blank bg-[#E1E4EF]">
+<div class="parallax-blank2 bg-[#E1E4EF]">
 </div>
 <div class="content bg-[#E1E4EF]">
 		<div id="skills">
@@ -258,7 +264,7 @@ export default {
 		<img class="para" src="@/assets/images/screen4/middle-sc4.png" id="middle-sc4">
 		<img class="para" src="@/assets/images/screen4/front-sc4-1.png" id="front-sc4-1">
 		<img class="para" src="@/assets/images/screen4/front-sc4-2.png" id="front-sc4-2">
-		<div id="contact" class="banner2 hidden">
+		<div id="contact" class="banner2">
         <ContactDetails></ContactDetails>
     </div>
 	</div>
@@ -276,9 +282,19 @@ export default {
 	justify-content: center;
 	align-items: center;
   height: 50vh;
+  margin-top: -2px;
+}
+.parallax-blank2 {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  height: 20vh;
+  margin-top: -2px;
 }
 .content-blank{
   position: relative;
+  margin-top: -2px;
   height: 50vh;
 }
 .content-blank2{
@@ -301,7 +317,7 @@ export default {
   height: 10vh;
 }
 #footer{
-  height: 20vh;
+  height: 10vh;
 }
 #second-screen{
 	position: relative;
@@ -312,6 +328,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+  margin-top: -2px;
 }
 .parallax-skill {
 	position: relative;

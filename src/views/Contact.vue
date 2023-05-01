@@ -1,6 +1,6 @@
 <script>
 import feather from 'feather-icons';
-import ContactDetails from '@/components/contact/ContactDetails.vue';
+import ContactDetails from '@/components/contact/ContactDetailsMain.vue';
 
 export default {
 	components: {

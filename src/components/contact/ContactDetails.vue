@@ -77,7 +77,7 @@ export default {
       <div class="2xl:flex 2xl:justify-center">
       <!-- COMPONENT CODE -->
         <div class="2xl:w-4/6 my-4 px-4 lg:mx-12 xl:mx-20 2xl:mx-54">
-          <div class="flex flex-col md:flex-row p-2 sm:pr-8 rounded-md shadow-md">
+          <div class="flex flex-col md:flex-row p-2 md:pr-8 rounded-md shadow-md">
             <div class="w-full md:w-2/4 xl:w-2/5">
               <div class=" px-1 sm:px-12 md:px-12 pb-10 md:pb-10 rounded-md bg-indigo-700">
                   <h2 class="font-general-medium text-xl md:text-2xl text-white text-center md:text-left pt-5 pb-3">
