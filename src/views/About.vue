@@ -24,17 +24,18 @@ export default {
 
 <template>
 	<div>
-
-		<!-- About me -->
-		<div class="container mx-auto mt-40">
-			<AboutMe />
-		</div>
 		<div id='stars'></div>
 		<div id='stars2'></div>
 		<div id='stars3'></div>
-		<!-- About counter -->
+		<div class="flex flex-col">
+				<!-- About me -->
+			<div class="container mx-auto mt-40 z-10">
+				<AboutMe />
+			</div>
+			<!-- About counter -->
 		<AboutCounter />
 
+		</div>
 	</div>
 </template>
 

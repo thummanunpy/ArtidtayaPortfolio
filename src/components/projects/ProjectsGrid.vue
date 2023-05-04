@@ -95,7 +95,7 @@ export default {
 		</div>
 		<div
 			class="grid grid-cols-[repeat(auto-fit,_50%)] sm:grid-cols-[repeat(auto-fit,_22.5%)] md:grid-cols-[repeat(auto-fit,_19%)] lg:grid-cols-[repeat(auto-fit,_15.3%)] 
-			xl:grid-cols-[repeat(auto-fit,_12.3%)] gap-4 m-auto pt-10 pb-10 justify-center"
+			xl:grid-cols-[repeat(auto-fit,_12.3%)] gap-4 m-auto pt-10 justify-center"
 		>
 			<ProjectSingle
 				v-for="project in filteredProjects"
@@ -104,7 +104,7 @@ export default {
 				class="w-full p-2 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg"
 			/>
 		</div>
-		<div class="flex flex-row justify-center md:flex-row md:mt-10">
+		<div class="flex flex-row justify-center md:flex-row md:mt-5">
 			<div class="w-full md:w-2/5 lg:w-1/5 xl:w-1/5 " >
 				<router-link
 					to="/projects"

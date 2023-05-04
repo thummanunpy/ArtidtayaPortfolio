@@ -180,7 +180,7 @@ export default {
 		<img class="para" src="@/assets/images/screen1/moon.png" id="moon">
 		<img class="para" src="@/assets/images/screen1/cloud-1.png" id="cloud-1">
 		<div id="text-screen-1" class="banner flex flex-col lg:flex-row text-[#003049] w-3/5 text-right">
-			<div class="w-full lg:w-3/6 md:mt-48 lg:mt-20 xl:mt-28 2xl:mt-36">
+			<div class="w-full lg:w-3/6 md:mt-48 lg:mt-20 xl:mt-28 2xl:mt-24">
 				<h1
 					class="font-general-semibold text-xl text-white md:text-xl xl:text-2xl 2xl:text-3xl text-center lg:text-left uppercase mb-2"
 				>

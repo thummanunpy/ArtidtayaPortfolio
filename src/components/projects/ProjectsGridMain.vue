@@ -91,7 +91,7 @@ export default {
 	<div id='stars2'></div>
 	<div id='stars3'></div>
 	<!-- Projects grid -->
-	<section class="p-10 pt-52">
+	<section class="p-10 pt-52 z-10">
 		<!-- Projects grid title -->
 		<div class="flex flex-col xl:flex-row justify-center xl:justify-between xl:px-32">
 			<p
@@ -99,7 +99,7 @@ export default {
 			>
 				{{ projectsHeading }}
 			</p>
-			<div class="btn-group mt-10  justify-center xl:justify-end xl:w-1/3">
+			<div class="btn-group mt-10  justify-center xl:justify-end xl:w-1/3 z-10">
 				<button 
 					@click="toggleAll"
 					:class="{ 'btn-active': isAll }"
@@ -133,7 +133,7 @@ export default {
 				:key="project.id"
 				:project="project"
 				@click="showProjectInModal(project)"
-				class="w-full p-2 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg cursor-pointer hover:shadow-xl"
+				class="w-full p-2 col-span-2 justify-center justify-self-center mx-auto text-white text-center text-lg cursor-pointer hover:shadow-xl z-10"
 				for="my-modal-5"
 			/>
 		</div>
@@ -158,20 +158,19 @@ export default {
 						:alt="projectModal.title"
 					/>
 				</div>
-				<div class="hidden md:block md:w-full md:w-1/5">
-					<div class="flex flex-col">
-						<div class="font-general-semibold text-md text-left text-white mt-20 mb-5 w-1/3 text-center">
+				<div class="hidden md:block pt-20 w-1/5">
+					<div class="grid w-12">
+						<div class="font-general-semibold text-lg text-white mb-5">
 							Tools
 						</div>
 						<div v-for="project in projectModal.technology" :key="project.icon">
-							<div class="justify-start mb-3 mt-2">
-								<img class= "w-1/6 ml-7 p-2" 
+							<div class="pt-4">
+								<img  
 									:src= "project.icon"
 								/>
 							</div>
 						</div>
-
-					</div>				
+					</div>			
 				</div>
 			</div>
 		</div>

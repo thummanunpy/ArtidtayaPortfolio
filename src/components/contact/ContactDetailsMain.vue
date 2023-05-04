@@ -65,7 +65,7 @@ export default {
   <div id='stars'></div>
   <div id='stars2'></div>
   <div id='stars3'></div>
-  <div class="w-screen mt-28">
+  <div class="w-screen mt-28 z-10">
 		<div class="">
 			<h1
 				class="font-general-medium font-bold text-center text-4xl text-white mt-12 mb-6 mx-14"

@@ -101,7 +101,7 @@ nav {
 	position: absolute;
 	justify-content: flex-start;
 	align-items: center;
-	z-index: 1;
+	z-index: 11;
 	width: 100%;
 }
 </style>

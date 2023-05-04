@@ -154,9 +154,11 @@ export default {
 			:filePath="'./earth-7865127.glb'"
 			:width="700"
 			:height="700"
-			:controlsOptions="{enablePan: false,
-      enableZoom: false,
-      enableRotate: false}"
+			:controlsOptions="{
+				enablePan: false,
+				enableZoom: false,
+				enableRotate: false
+			}"
 			:scale="{ x: 1, y: 1, z: 1 }"
 		></vue3dLoader>
 	</div>
@@ -180,7 +182,7 @@ export default {
 					class="grid grid-cols-3 gap-4 mx-10 md:grid-cols-3 md:gap-4 sm:px-20 md:px-2 md:mx-1" >		
 					<div v-for="skill in skills" :key="skill.id">
 						<div class="flex flex-col items-center justify-center relative mb-3">
-							<img class= "w-2/3 md:w-2/3 xl:w-2/3 2xl:w-1/3 mt-5 p-2 inline-block rounded-xl bg-[#E1E4EF] " 
+							<img class= "w-2/3 md:w-2/3 xl:w-2/3 2xl:w-2/4 mt-5 p-2 inline-block rounded-xl bg-[#E1E4EF] " 
 								:src= "skill.icon"
 							/>
 							<h3 class="sm:font-general-semibold md:font-general-medium inline-block rounded-full bg-rose-600 px-3 py-1 mt-5 bg-rose-80 text-center text-white">
