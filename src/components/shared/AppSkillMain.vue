@@ -1,15 +1,20 @@
 <script>
 import feather from 'feather-icons';
+import { vue3dLoader } from "vue-3d-loader";
 import 'flowbite';
 
 export default {
 	name: 'Home',
+	components:{
+		vue3dLoader
+	},
 	data: () => {
 		return {
 			theme: '',
 			showHeaderSkillAndExperience:false,
 			showSecond:false,
 			headerSkill:'Advance',
+			currentTime: 0,
 			more:"More",
 			iconDown:"chevrons-down",
 			less:"Less",
@@ -49,6 +54,7 @@ export default {
 		};
 	},
 	created() {
+ 
 	},
 	mounted() {
 	feather.replace();
@@ -60,6 +66,7 @@ export default {
 	this.createObserver(softwareSkill, this.callbackSoftwareSkill);
 	this.createObserver(experience, this.callbackExperience);
 	this.createObserver(certificates, this.callbackCertificates);
+	this.startRotation();
 	},
 	updated() {
 		feather.replace();
@@ -123,7 +130,13 @@ export default {
 	},
 	checkHeaderSkills(status){
 		this.headerSkill = status
-	}
+	},
+	startRotation() {
+    setInterval(() => {
+      this.currentTime += 0.001;
+    }, 10)
+  }
+	
 	},
 };
 </script>
@@ -132,6 +145,21 @@ export default {
 	<div id='stars'></div>
 	<div id='stars2'></div>
 	<div id='stars3'></div>
+	<div class="fixed flex flex-row -z-1">
+		<vue3dLoader
+			class="relative" 
+			:rotation="{ x: 0, y: currentTime, z: 0 }"
+			:backgroundAlpha="0.5"
+			:backgroundColor="0x0B163E"
+			:filePath="'./earth-7865127.glb'"
+			:width="700"
+			:height="700"
+			:controlsOptions="{enablePan: false,
+      enableZoom: false,
+      enableRotate: false}"
+			:scale="{ x: 1, y: 1, z: 1 }"
+		></vue3dLoader>
+	</div>
 	<section
 		class="flex flex-col sm:justify-between md:flex-row pt-48 px-6 md:pl-16 "
 	>
@@ -223,7 +251,7 @@ export default {
 										FutureSkill
 								</h1>    
 								<a class="" target="_blank" href="https://robolly.com/backend/rendered/644f8022bfeacd35c760aacb">
-									<div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+									<div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-4 blob blue">
 										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
 									</div>
 								</a>
@@ -243,7 +271,7 @@ export default {
 									Udemy
 								</h1>    
 								<a target="_blank" href="https://www.udemy.com/certificate/UC-4e9ddaae-49e2-4020-8daa-033740a96230/"
-								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-4 blob blue">
 										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
 									</div>
 								</a>
@@ -255,7 +283,7 @@ export default {
 
 									</div>
 								<a target="_blank" href="https://www.udemy.com/certificate/UC-468fcf59-87a9-43a7-9b97-688c87fb306a/"
-								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-4 blob blue">
 										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
 									</div>
 								</a>
@@ -279,6 +307,38 @@ export default {
 </template>
 
 <style scoped>
+.blob {
+	margin-top: 15px;
+	background: black;
+	border-radius: 80%;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	width: 30px;
+	transform: scale(1);
+	animation: pulse-black 2s infinite;
+}
+
+.blob.blue {
+	background: rgba(52, 172, 224, 1);
+	box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+	animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+	}
+}
 html {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);

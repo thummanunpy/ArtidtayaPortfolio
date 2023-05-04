@@ -174,7 +174,7 @@ export default {
 					<div class="mt-12 ml-6">
 						<ol class="relative border-l border-black">                  
 							<li class="mb-10 ml-6 text-left">            
-								<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white">
+								<span class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 ring-white pulsating-circle">
 									<svg aria-hidden="true" class="w-3 h-3 text-rose-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
 								</span>
 								<h3 class="flex items-center md: mb-1 text-lg font-semibold text-gray-900">
@@ -216,8 +216,8 @@ export default {
 								<h1 class="flex items-center ml-2 md:mb-1 text-lg font-semibold text-gray-900">
 										FutureSkill
 								</h1>    
-								<a class="" target="_blank" href="https://robolly.com/backend/rendered/644f8022bfeacd35c760aacb">
-									<div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+								<a target="_blank" href="https://robolly.com/backend/rendered/644f8022bfeacd35c760aacb">
+									<div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-4 blob blue">
 										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
 									</div>
 								</a>
@@ -237,7 +237,7 @@ export default {
 									Udemy
 								</h1>    
 								<a target="_blank" href="https://www.udemy.com/certificate/UC-4e9ddaae-49e2-4020-8daa-033740a96230/"
-								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-4 blob blue">
 										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
 									</div>
 								</a>
@@ -249,7 +249,7 @@ export default {
 
 									</div>
 								<a target="_blank" href="https://www.udemy.com/certificate/UC-468fcf59-87a9-43a7-9b97-688c87fb306a/"
-								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-3 ring-8 mt-5 2xl:mt-2">
+								><div class="absolute flex items-center justify-center w-6 h-6 bg-rose-100 rounded-full -left-4 blob blue">
 										<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 128 128" viewBox="0 0 128 128" id="certificate"><circle cx="64" cy="64" r="63.5" fill="#FF7058"></circle><rect width="75.5" height="52.7" x="25.3" y="34.4" fill="#4CDBC4"></rect><rect width="67.5" height="44.8" x="29.2" y="38.4" fill="#FFF"></rect><rect width="35.8" height="4.2" x="45.1" y="45.1" fill="#324A5E"></rect><rect width="17.5" height="4.2" x="45.1" y="54.4" fill="#324A5E"></rect><polygon fill="#324A5E" points="74 93.6 72.2 90.1 68.5 91.3 74.7 76.4 80.3 78.7"></polygon><polygon fill="#324A5E" points="85.7 93.6 87.5 90.1 91.2 91.3 85 76.4 79.5 78.7"></polygon><path fill="#FFD05B" d="M89.7,74c0.3-0.3,0.3-0.9,0-1.3L89,72c-0.3-0.3-0.3-0.6-0.2-1l0.4-0.9c0.2-0.5,0-1-0.5-1.2l-1-0.4    c-0.3-0.1-0.5-0.5-0.5-0.8v-1.1c0-0.5-0.4-0.9-0.9-0.9h-1c-0.4,0-0.7-0.2-0.8-0.6l-0.4-0.9c-0.2-0.5-0.7-0.7-1.2-0.5l-1,0.4    c-0.3,0.1-0.7,0.1-1-0.2l-0.8-0.8c-0.3-0.3-0.9-0.3-1.3,0L78.3,64c-0.3,0.3-0.6,0.3-1,0.2l-0.9-0.4c-0.5-0.2-1,0-1.2,0.5l-0.4,1    c-0.1,0.3-0.5,0.5-0.8,0.5H73c-0.5,0-0.9,0.4-0.9,0.9v1c0,0.4-0.2,0.7-0.6,0.8l-0.9,0.4c-0.5,0.2-0.7,0.7-0.5,1.2l0.4,1    c0.1,0.3,0.1,0.7-0.2,1l-0.8,0.8c-0.3,0.3-0.3,0.9,0,1.3l0.7,0.7c0.3,0.3,0.3,0.6,0.2,1l-0.4,0.9c-0.2,0.5,0,1,0.5,1.2l1,0.4    c0.3,0.1,0.5,0.5,0.5,0.8V80c0,0.5,0.4,0.9,0.9,0.9h1c0.4,0,0.7,0.2,0.8,0.6l0.4,0.9c0.2,0.5,0.7,0.7,1.2,0.5l1-0.4    c0.3-0.1,0.7-0.1,1,0.2l0.8,0.8c0.3,0.3,0.9,0.3,1.3,0l0.7-0.7c0.3-0.3,0.6-0.3,1-0.2l0.9,0.4c0.5,0.2,1,0,1.2-0.5l0.4-1    c0.1-0.3,0.5-0.5,0.8-0.5h1.1c0.5,0,0.9-0.4,0.9-0.9v-1c0-0.4,0.2-0.7,0.6-0.8l0.9-0.4c0.5-0.2,0.7-0.7,0.5-1.2l-0.4-1    c-0.1-0.3-0.1-0.7,0.2-1L89.7,74z"></path><circle cx="79.6" cy="73.3" r="5.8" fill="#FF7058"></circle><polygon fill="#FFF" points="79.6 70 80.7 72.1 83 72.5 81.3 74.1 81.7 76.4 79.6 75.3 77.6 76.4 78 74.1 76.3 72.5 78.6 72.1"></polygon></svg>
 									</div>
 								</a>
@@ -272,7 +272,40 @@ export default {
 </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.blob {
+	margin-top: 15px;
+	background: black;
+	border-radius: 80%;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	width: 30px;
+	transform: scale(1);
+	animation: pulse-black 2s infinite;
+}
+
+.blob.blue {
+	background: rgba(52, 172, 224, 1);
+	box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+	animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+	}
+}
+
 .to-fade-in {
 	opacity: 0;
 	transform: translateY(-10px);

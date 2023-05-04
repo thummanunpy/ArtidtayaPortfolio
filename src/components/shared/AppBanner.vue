@@ -51,10 +51,8 @@ export default {
 		let text = document.getElementById('text-screen-1');
     // let rocket = document.getElementById('rocket');
 		let moon = document.getElementById('moon');
-    let sun = document.getElementById('sun-sc4');
 		let cloud2Left = document.getElementById('cloud-2-left');
 		let cloud2Right = document.getElementById('cloud-2-right');
-    let frontScreen4_1 = document.getElementById('front-sc4-1');
     const target = document.getElementById("screen-1");
     const contact = document.getElementById("sun-sc4");
     const rocket = document.getElementById("rocket");
@@ -79,22 +77,7 @@ export default {
       if(this.showScreen1){
         text.style.marginTop = valueY * 2.5 + 'px';
       }
-      if(this.showSun){
-        let st = window.pageYOffset || document.documentElement.scrollTop;
-        if (st > this.lastScrollTop && this.countSun > 0) {
-            // downscroll code
-            this.countSun -= (valueY/300);
-            frontScreen4_1.style.left = this.countSun + 'px';
-            sun.style.marginBottom =  this.countSun + 'px';
-        } else if (st < this.lastScrollTop && this.countSun < 600) {
-            this.countSun += (valueY/300);
-            // frontScreen4_2.style.left = this.countSun + 'px';
-            frontScreen4_1.style.left = this.countSun + 'px';
-            sun.style.marginBottom =  this.countSun + 'px';
-              // upscroll code
-        } 
-        this.lastScrollTop = st <= 0 ? 0 : st;
-      }
+
 			cloud2Left.style.left = valueY * -0.5 + 'px';
 			cloud2Right.style.left = valueY * 0.5 + 'px';
 			moon.style.top = valueY * -1.5 + 'px';
@@ -285,12 +268,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-#front-sc4-1{
-  left: 400px;
-}
 #sun-sc4{
-  width: 80%;
-  margin-bottom: 50%;
+  margin-bottom: 40%;
 }
 .parallax-blank {
 	position: relative;
